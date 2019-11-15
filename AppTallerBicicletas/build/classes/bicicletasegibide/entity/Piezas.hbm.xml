@@ -1,27 +1,26 @@
-<?xml version="1.0"?>
-<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
-"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated 15-nov-2019 18:09:34 by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
-    <class name="bicicletasegibide.entity.Piezas" table="piezas" catalog="bicicletasegibide">
-        <id name="codigopieza" type="string">
-            <column name="codigopieza" length="45" />
-            <generator class="assigned" />
-        </id>
-        <property name="nombre" type="string">
-            <column name="nombre" length="45" not-null="true" />
-        </property>
-        <property name="precio" type="float">
-            <column name="precio" precision="12" scale="0" not-null="true" />
-        </property>
-        <property name="descripcion" type="string">
-            <column name="descripcion" length="45" />
-        </property>
-        <set name="gestioneses" inverse="true">
-            <key>
-                <column name="piezas_codigopieza" length="45" not-null="true" />
-            </key>
-            <one-to-many class="bicicletasegibide.entity.Gestiones" />
-        </set>
-    </class>
+  <class catalog="bicicletasegibide" name="bicicletasegibide.entity.Piezas" table="piezas">
+    <id name="codigopieza" type="string">
+      <column length="45" name="codigopieza"/>
+      <generator class="assigned"/>
+    </id>
+    <property name="nombre" type="string">
+      <column length="45" name="nombre" not-null="true"/>
+    </property>
+    <property name="precio" type="float">
+      <column name="precio" not-null="true" precision="12" scale="0"/>
+    </property>
+    <property name="descripcion" type="string">
+      <column length="45" name="descripcion"/>
+    </property>
+    <set inverse="true" name="gestioneses">
+      <key>
+        <column length="45" name="piezas_codigopieza" not-null="true"/>
+      </key>
+      <one-to-many class="bicicletasegibide.entity.Gestiones"/>
+    </set>
+  </class>
 </hibernate-mapping>

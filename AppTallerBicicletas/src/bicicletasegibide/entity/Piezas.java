@@ -31,6 +31,15 @@ public class Piezas  implements java.io.Serializable {
     public Piezas() {
     }
 
+    public Piezas(String codigopieza, String nombre, float precio, String descripcion) {
+        this.codigopieza = codigopieza;
+        this.nombre = nombre;
+        this.precio = precio;
+        this.descripcion = descripcion;
+    }
+
+    
+
 	
     public Piezas(String codigopieza, String nombre, float precio) {
         this.codigopieza = codigopieza;

@@ -14,6 +14,7 @@ package vista;
 import bicicletasegibide.entity.Piezas;
 import java.util.ArrayList;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import modelo.ModeloTablaPiezas;
 
 /**
@@ -294,14 +295,112 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     private void eliminarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarButtonActionPerformed
         // TODO add your handling code here:
+
+        //obtengo la fila seleccionada
+        int rowSeleccionada = this.tablaPiezas.getSelectedRow();
+
+        // compruebo que el usuario haya elegido alguna fila
+        if (rowSeleccionada == -1) {
+
+            JOptionPane.showMessageDialog(null, "SELECCIONE UNA FILA");
+
+        } else {
+
+            // obtengo los datos de la fila
+            String cod = this.tablaPiezas.getModel().getValueAt(rowSeleccionada, 0).toString();
+            String n = this.tablaPiezas.getModel().getValueAt(rowSeleccionada, 1).toString();
+            String p = this.tablaPiezas.getModel().getValueAt(rowSeleccionada, 2).toString();
+            String d = this.tablaPiezas.getModel().getValueAt(rowSeleccionada, 3).toString();
+
+            // elimino del modelo la row
+            this.modeloTablaPiezas.eliminarPieza(rowSeleccionada);
+
+            // creo el objeto
+            Piezas pieza = new Piezas(cod, n, Float.parseFloat(p), d);
+
+            // borro de la bd la pieza
+            pieza.borrarPieza(pieza);
+
+        }
+
+
     }//GEN-LAST:event_eliminarButtonActionPerformed
 
     private void actualizarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actualizarButtonActionPerformed
         // TODO add your handling code here:
+
+        //obtengo la fila seleccionada
+        int rowSeleccionada = this.tablaPiezas.getSelectedRow();
+
+        // compruebo que una celda esté seleccionada
+        if(rowSeleccionada>=0){
+
+            //obtengo los valores de la fila que se está editando
+            String cod = this.tablaPiezas.getValueAt(rowSeleccionada, 0).toString();
+            String n = this.tablaPiezas.getValueAt(rowSeleccionada, 1).toString();
+            String p = this.tablaPiezas.getValueAt(rowSeleccionada, 2).toString();
+            String d = this.tablaPiezas.getValueAt(rowSeleccionada, 3).toString();
+
+            // actualizo la lista de piezas del table model y po lo tanto la fila en el Jtable
+            this.tablaPiezas.getModel().setValueAt(cod, rowSeleccionada, 0);
+            this.tablaPiezas.getModel().setValueAt(n, rowSeleccionada, 1);
+            this.tablaPiezas.getModel().setValueAt(p, rowSeleccionada, 2);
+            this.tablaPiezas.getModel().setValueAt(d, rowSeleccionada, 3);
+
+
+
+
+            float price = Float.valueOf(p);
+
+            Piezas nuevaPieza = new Piezas(cod,n,price,d);
+
+
+            //actualizo la pieza en la bd
+            nuevaPieza.modificarPieza(nuevaPieza);
+
+
+
+
+
+
+        }else{
+
+            JOptionPane.showMessageDialog(null, "SELECCIONE UNA FILA ");
+        }
     }//GEN-LAST:event_actualizarButtonActionPerformed
 
     private void nuevaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nuevaButtonActionPerformed
         // TODO add your handling code here:
+
+
+        String code = textFieldCodigoPieza.getText();
+        String name = textFieldNombre.getText();
+        String price = textFieldPrecio.getText();
+        String description = textFieldDescripcion.getText();
+
+        if(code.equalsIgnoreCase("")||name.equals("")
+                ||price.equals("")||description.equals("") ){
+
+            JOptionPane.showMessageDialog(null, "Introduzca todos los campos");
+        }else {
+
+            float p = Float.valueOf(price);
+
+
+
+            Piezas nuevaPieza = new Piezas(code,name,p,description);
+
+
+            // inserto la nueva pieza en la bd
+            nuevaPieza.insertarPieza(nuevaPieza);
+
+            // limpio los textfields
+            limpiarTextfields();
+
+            // inserto en la jtable
+           this.modeloTablaPiezas.adicionarPieza(nuevaPieza);
+
+        }
     }//GEN-LAST:event_nuevaButtonActionPerformed
 
     /**
@@ -343,6 +442,20 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private ModeloTablaPiezas modeloTablaPiezas;
+
+
+
+    // metodos personales
+     // metod to clean textFields
+    public void limpiarTextfields(){
+
+         textFieldCodigoPieza.setText("");
+         textFieldNombre.setText("");
+         textFieldPrecio.setText("");
+         textFieldDescripcion.setText("");
+
+
+    }
 
     
 }
