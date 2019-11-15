@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 15-nov-2019 18:09:34 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="bicicletasegibide.entity.Gestiones" table="gestiones" catalog="bicicletasegibide">
+        <composite-id name="id" class="bicicletasegibide.entity.GestionesId">
+            <key-property name="piezasCodigopieza" type="string">
+                <column name="piezas_codigopieza" length="45" />
+            </key-property>
+            <key-property name="proveedoresCodigoproveedor" type="string">
+                <column name="proveedores_codigoproveedor" length="45" />
+            </key-property>
+            <key-property name="reparacionesCodigoreparacion" type="string">
+                <column name="reparaciones_codigoreparacion" length="45" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="reparaciones" class="bicicletasegibide.entity.Reparaciones" update="false" insert="false" fetch="select">
+            <column name="reparaciones_codigoreparacion" length="45" not-null="true" />
+        </many-to-one>
+        <many-to-one name="piezas" class="bicicletasegibide.entity.Piezas" update="false" insert="false" fetch="select">
+            <column name="piezas_codigopieza" length="45" not-null="true" />
+        </many-to-one>
+        <many-to-one name="proveedores" class="bicicletasegibide.entity.Proveedores" update="false" insert="false" fetch="select">
+            <column name="proveedores_codigoproveedor" length="45" not-null="true" />
+        </many-to-one>
+        <property name="cantidad" type="java.lang.Float">
+            <column name="cantidad" precision="12" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>
