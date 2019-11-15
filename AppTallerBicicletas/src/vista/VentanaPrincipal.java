@@ -11,7 +11,10 @@
 
 package vista;
 
+import bicicletasegibide.entity.Piezas;
+import java.util.ArrayList;
 import javax.swing.JFrame;
+import modelo.ModeloTablaPiezas;
 
 /**
  *
@@ -22,6 +25,20 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     /** Creates new form VentanaPrincipal */
     public VentanaPrincipal() {
         initComponents();
+        
+        
+        ArrayList arrayListPiezas = new ArrayList();
+
+        Piezas pieza = new Piezas();
+
+        arrayListPiezas = pieza.listarPiezas();
+
+        this.modeloTablaPiezas = new ModeloTablaPiezas(arrayListPiezas);
+
+        this.tablaPiezas.setModel(this.modeloTablaPiezas);
+
+
+
     }
 
     /** This method is called from within the constructor to
@@ -132,6 +149,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new VentanaPrincipal().setVisible(true);
+
+
+
                 
             }
         });
@@ -146,4 +166,5 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JTable tablaPiezas;
     // End of variables declaration//GEN-END:variables
 
+    private ModeloTablaPiezas modeloTablaPiezas;
 }
