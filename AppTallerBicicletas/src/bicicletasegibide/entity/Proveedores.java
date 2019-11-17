@@ -245,6 +245,55 @@ public class Proveedores  implements java.io.Serializable {
     }
 
 
+    // proveedores por campo seleccionado
+    public ArrayList<Proveedores> listarProveedoresPorCampo(String datoTextField, String busqueda){
+
+        SessionFactory sesion = NewHibernateUtil.getSessionFactory();
+        Session session = sesion.openSession();
+
+        String consulta = "";
+        ArrayList arrayListProveedores = new ArrayList();
+
+
+        // query
+        Query q = null;
+
+
+        if(busqueda.equalsIgnoreCase("Por código")){
+            consulta = "codigoproveedor";
+            q = session.createQuery("from Proveedores where "+consulta+" = ?");
+        }else if(busqueda.equalsIgnoreCase("Por nombre")){
+            consulta = "nombre";
+            q = session.createQuery("from Proveedores where "+consulta+" = ?");
+        }else if(busqueda.equalsIgnoreCase("Por dirección")){
+            consulta = "direccion";
+            q = session.createQuery("from Proveedores where "+consulta+" = ?");
+        }
+
+        //q.setParameter(0, (String) consulta);
+        q.setParameter(0, (String) datoTextField);
+
+
+        List <Proveedores> lista = q.list();
+
+        // Obtengo un Iterador y recorro la lista
+        Iterator <Proveedores> iter = lista.iterator();
+
+        lista.size();
+
+        while(iter.hasNext()){
+
+            //extraer el objeto
+            Proveedores proveedor = (Proveedores) iter.next();
+            arrayListProveedores.add(proveedor);
+
+        }
+
+
+        return arrayListProveedores;
+
+    }
+
 
 }
 

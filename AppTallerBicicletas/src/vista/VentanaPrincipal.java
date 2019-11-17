@@ -108,10 +108,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         tablaProveedores = new javax.swing.JTable();
         contenedorBusquedaAvProveedores = new javax.swing.JPanel();
-        jRadioButton4 = new javax.swing.JRadioButton();
-        jRadioButton5 = new javax.swing.JRadioButton();
-        jRadioButton6 = new javax.swing.JRadioButton();
-        jRadioButton7 = new javax.swing.JRadioButton();
+        jRadioButtonCodigoProveedores = new javax.swing.JRadioButton();
+        jRadioButtonNombreProveedores = new javax.swing.JRadioButton();
+        jRadioButtonDireccionProveedores = new javax.swing.JRadioButton();
+        jRadioButtonListarProveedores = new javax.swing.JRadioButton();
         textFieldBusqAvanProveedores = new javax.swing.JTextField();
         buttonBusqAvanzProveedores = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
@@ -412,15 +412,20 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         contenedorBusquedaAvProveedores.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Búsqueda Avanzada"));
 
-        jRadioButton4.setText("Por código");
+        jRadioButtonCodigoProveedores.setText("Por código");
 
-        jRadioButton5.setText("Por nombre");
+        jRadioButtonNombreProveedores.setText("Por nombre");
 
-        jRadioButton6.setText("Por dirección");
+        jRadioButtonDireccionProveedores.setText("Por dirección");
 
-        jRadioButton7.setText("Listar proveedores");
+        jRadioButtonListarProveedores.setText("Listar proveedores");
 
         buttonBusqAvanzProveedores.setText("Buscar");
+        buttonBusqAvanzProveedores.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonBusqAvanzProveedoresActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout contenedorBusquedaAvProveedoresLayout = new javax.swing.GroupLayout(contenedorBusquedaAvProveedores);
         contenedorBusquedaAvProveedores.setLayout(contenedorBusquedaAvProveedoresLayout);
@@ -429,10 +434,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             .addGroup(contenedorBusquedaAvProveedoresLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(contenedorBusquedaAvProveedoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jRadioButton4)
-                    .addComponent(jRadioButton5)
-                    .addComponent(jRadioButton6)
-                    .addComponent(jRadioButton7)
+                    .addComponent(jRadioButtonCodigoProveedores)
+                    .addComponent(jRadioButtonNombreProveedores)
+                    .addComponent(jRadioButtonDireccionProveedores)
+                    .addComponent(jRadioButtonListarProveedores)
                     .addGroup(contenedorBusquedaAvProveedoresLayout.createSequentialGroup()
                         .addComponent(textFieldBusqAvanProveedores, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -442,13 +447,13 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         contenedorBusquedaAvProveedoresLayout.setVerticalGroup(
             contenedorBusquedaAvProveedoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(contenedorBusquedaAvProveedoresLayout.createSequentialGroup()
-                .addComponent(jRadioButton4)
+                .addComponent(jRadioButtonCodigoProveedores)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jRadioButton5)
+                .addComponent(jRadioButtonNombreProveedores)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jRadioButton6)
+                .addComponent(jRadioButtonDireccionProveedores)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jRadioButton7)
+                .addComponent(jRadioButtonListarProveedores)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(contenedorBusquedaAvProveedoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(textFieldBusqAvanProveedores, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1041,6 +1046,50 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButtonBusqAvanzreparacionesActionPerformed
 
+    private void buttonBusqAvanzProveedoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBusqAvanzProveedoresActionPerformed
+        // TODO add your handling code here:
+
+
+        String ciudad = jRadioButtonDireccionProveedores.getText();
+        String nombre = jRadioButtonNombreProveedores.getText();
+        String code = jRadioButtonCodigoProveedores.getText();
+
+        String datoText = textFieldBusqAvanProveedores.getText().trim();
+
+        ArrayList arrayListProveedores = new ArrayList();
+        Proveedores proveedor = new Proveedores();
+
+
+        JOptionPane.showMessageDialog(null, datoText);
+
+        if(jRadioButtonCodigoProveedores.isSelected() && !textFieldBusqAvanProveedores.getText().equalsIgnoreCase("")){
+
+            arrayListProveedores = proveedor.listarProveedoresPorCampo(datoText, code);
+
+        }else if(jRadioButtonNombreProveedores.isSelected()&& !textFieldBusqAvanProveedores.getText().equalsIgnoreCase("")){
+
+            arrayListProveedores = proveedor.listarProveedoresPorCampo(datoText, nombre);
+
+        }else if (jRadioButtonDireccionProveedores.isSelected()&& !textFieldBusqAvanProveedores.getText().equalsIgnoreCase("")){
+
+            arrayListProveedores = proveedor.listarProveedoresPorCampo(datoText, ciudad);
+
+        }else if (jRadioButtonListarProveedores.isSelected()){
+
+            arrayListProveedores = proveedor.listarProveedores();
+
+
+
+        }else{
+            JOptionPane.showMessageDialog(null, "Seleccione una opción e introduzca dato a buscar");
+
+        }
+
+
+        this.modeloTablaProveedores = new ModeloTablaProveedores(arrayListProveedores);
+        this.tablaProveedores.setModel(this.modeloTablaProveedores);
+    }//GEN-LAST:event_buttonBusqAvanzProveedoresActionPerformed
+
     /**
     * @param args the command line arguments
     */
@@ -1092,13 +1141,13 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JRadioButton jRadioButton3;
-    private javax.swing.JRadioButton jRadioButton4;
-    private javax.swing.JRadioButton jRadioButton5;
-    private javax.swing.JRadioButton jRadioButton6;
-    private javax.swing.JRadioButton jRadioButton7;
     private javax.swing.JRadioButton jRadioButtonCiudadReparacion;
+    private javax.swing.JRadioButton jRadioButtonCodigoProveedores;
     private javax.swing.JRadioButton jRadioButtonCodigoReparacion;
+    private javax.swing.JRadioButton jRadioButtonDireccionProveedores;
+    private javax.swing.JRadioButton jRadioButtonListarProveedores;
     private javax.swing.JRadioButton jRadioButtonListarReparaciones;
+    private javax.swing.JRadioButton jRadioButtonNombreProveedores;
     private javax.swing.JRadioButton jRadioButtonNombreReparacion;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;

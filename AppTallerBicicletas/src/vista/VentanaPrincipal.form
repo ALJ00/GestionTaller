@@ -567,10 +567,10 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jRadioButton4" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jRadioButton5" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jRadioButton6" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jRadioButton7" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jRadioButtonCodigoProveedores" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jRadioButtonNombreProveedores" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jRadioButtonDireccionProveedores" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jRadioButtonListarProveedores" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="textFieldBusqAvanProveedores" min="-2" pref="212" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -584,13 +584,13 @@
                     <DimensionLayout dim="1">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="jRadioButton4" min="-2" max="-2" attributes="0"/>
+                              <Component id="jRadioButtonCodigoProveedores" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jRadioButton5" min="-2" max="-2" attributes="0"/>
+                              <Component id="jRadioButtonNombreProveedores" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jRadioButton6" min="-2" max="-2" attributes="0"/>
+                              <Component id="jRadioButtonDireccionProveedores" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jRadioButton7" min="-2" max="-2" attributes="0"/>
+                              <Component id="jRadioButtonListarProveedores" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="textFieldBusqAvanProveedores" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
@@ -602,22 +602,22 @@
                     </DimensionLayout>
                   </Layout>
                   <SubComponents>
-                    <Component class="javax.swing.JRadioButton" name="jRadioButton4">
+                    <Component class="javax.swing.JRadioButton" name="jRadioButtonCodigoProveedores">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Por c&#xf3;digo"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JRadioButton" name="jRadioButton5">
+                    <Component class="javax.swing.JRadioButton" name="jRadioButtonNombreProveedores">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Por nombre"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JRadioButton" name="jRadioButton6">
+                    <Component class="javax.swing.JRadioButton" name="jRadioButtonDireccionProveedores">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Por direcci&#xf3;n"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JRadioButton" name="jRadioButton7">
+                    <Component class="javax.swing.JRadioButton" name="jRadioButtonListarProveedores">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Listar proveedores"/>
                       </Properties>
@@ -628,6 +628,9 @@
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Buscar"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonBusqAvanzProveedoresActionPerformed"/>
+                      </Events>
                     </Component>
                   </SubComponents>
                 </Container>
