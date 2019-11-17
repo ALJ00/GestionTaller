@@ -36,8 +36,6 @@ public class Reparaciones  implements java.io.Serializable {
         this.ciudad = ciudad;
     }
 
-
-	
     public Reparaciones(String codigoreparacion, String nombre) {
         this.codigoreparacion = codigoreparacion;
         this.nombre = nombre;
@@ -171,7 +169,7 @@ public class Reparaciones  implements java.io.Serializable {
     }
 
     // listar las reparaciones
-    public ArrayList<Piezas> listarReparaciones(){
+    public ArrayList<Reparaciones> listarReparaciones(){
 
         SessionFactory sesion = NewHibernateUtil.getSessionFactory();
         Session session = sesion.openSession();
@@ -235,6 +233,58 @@ public class Reparaciones  implements java.io.Serializable {
         session.close();
     }
 
+    // reparacion por campo seleccionado
+    public ArrayList<Reparaciones> listarReparacionesPorCampo(String datoTextField, String busqueda){
+
+        SessionFactory sesion = NewHibernateUtil.getSessionFactory();
+        Session session = sesion.openSession();
+
+        String consulta = "";
+        ArrayList arrayListReparaciones = new ArrayList();
+
+
+        // query
+        Query q = null;
+
+        
+        if(busqueda.equalsIgnoreCase("Por código")){
+            consulta = "codigoreparacion";
+            q = session.createQuery("from Reparaciones where "+consulta+" = ?");
+        }else if(busqueda.equalsIgnoreCase("Por nombre")){
+            consulta = "nombre";
+            q = session.createQuery("from Reparaciones where "+consulta+" = ?");
+        }else if(busqueda.equalsIgnoreCase("Por ciudad")){
+            consulta = "ciudad";
+            q = session.createQuery("from Reparaciones where "+consulta+" = ?");
+        }else if(busqueda.equalsIgnoreCase("Listar todas")){
+            consulta="";
+            q = session.createQuery("from Reparaciones");
+        }
+
+       
+        //q.setParameter(0, (String) consulta);
+        q.setParameter(0, (String) datoTextField);
+        
+
+        List <Reparaciones> lista = q.list();
+
+        // Obtengo un Iterador y recorro la lista
+        Iterator <Reparaciones> iter = lista.iterator();
+
+        lista.size();
+
+        while(iter.hasNext()){
+
+            //extraer el objeto
+            Reparaciones reparacion = (Reparaciones) iter.next();
+            arrayListReparaciones.add(reparacion);
+
+        }
+
+
+        return arrayListReparaciones;
+
+    }
 
 
 }

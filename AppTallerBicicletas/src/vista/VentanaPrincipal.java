@@ -924,27 +924,46 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     private void jButtonBusqAvanzreparacionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBusqAvanzreparacionesActionPerformed
         // TODO add your handling code here:
+        
+        String ciudad = jRadioButtonCiudadReparacion.getText();
+        String nombre = jRadioButtonNombreReparacion.getText();
+        String code = jRadioButtonCodigoReparacion.getText();
+        
+        String datoText = textFieldBusqAvanzReparaciones.getText().trim();
+
+        ArrayList arrayListReparaciones = new ArrayList();
+        Reparaciones reparacion = new Reparaciones();
+
 
         if(jRadioButtonCiudadReparacion.isSelected() && !textFieldBusqAvanzReparaciones.getText().equalsIgnoreCase("")){
 
-            JOptionPane.showMessageDialog(null, "cod ");
+            JOptionPane.showMessageDialog(null, ciudad);
+            arrayListReparaciones = reparacion.listarReparacionesPorCampo(datoText, ciudad);
 
         }else if(jRadioButtonCodigoReparacion.isSelected()&& !textFieldBusqAvanzReparaciones.getText().equalsIgnoreCase("")){
 
-            JOptionPane.showMessageDialog(null, "nombre ");
+            JOptionPane.showMessageDialog(null, code);
+            arrayListReparaciones = reparacion.listarReparacionesPorCampo(datoText, code);
 
         }else if (jRadioButtonListarReparaciones.isSelected()&& !textFieldBusqAvanzReparaciones.getText().equalsIgnoreCase("")){
-            JOptionPane.showMessageDialog(null, "ciudad");
+            JOptionPane.showMessageDialog(null, "muestro todas");
+
+            arrayListReparaciones = reparacion.listarReparaciones();
 
         }else if (jRadioButtonNombreReparacion.isSelected()&& !textFieldBusqAvanzReparaciones.getText().equalsIgnoreCase("")){
-            JOptionPane.showMessageDialog(null, "todas ");
+            JOptionPane.showMessageDialog(null, nombre);
+            arrayListReparaciones = reparacion.listarReparacionesPorCampo(datoText, nombre);
 
-            Reparaciones reparacion = new Reparaciones();
+           
 
         }else{
             JOptionPane.showMessageDialog(null, "Seleccione una opción e introduzca dato a buscar");
 
         }
+
+
+        this.modeloTablaReparaciones = new ModeloTablaReparaciones(arrayListReparaciones);
+        this.tablaReparaciones.setModel(this.modeloTablaReparaciones);
 
 
     }//GEN-LAST:event_jButtonBusqAvanzreparacionesActionPerformed
