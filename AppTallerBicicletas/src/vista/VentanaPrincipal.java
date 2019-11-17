@@ -94,6 +94,21 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         tablaProveedores = new javax.swing.JTable();
         contenedorBusquedaAvProveedores = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
+        contenedorReparaciones = new javax.swing.JPanel();
+        contenedorGestionReparaciones = new javax.swing.JPanel();
+        buttonNuevaReparacion = new javax.swing.JButton();
+        buttonEliminarReparacion = new javax.swing.JButton();
+        buttonActualizarReparacion = new javax.swing.JButton();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        textFieldCodigoReparacion = new javax.swing.JTextField();
+        textFieldNombreReparacion = new javax.swing.JTextField();
+        textFieldCiudadReparacion = new javax.swing.JTextField();
+        contenedorTablaProveedores1 = new javax.swing.JPanel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        tablaReparaciones = new javax.swing.JTable();
+        contenedorBusquedaAvGestiones = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("App Gestión Taller Bicicletas");
@@ -375,18 +390,165 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Proveedores", contenedorProveedores);
 
+        contenedorReparaciones.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        contenedorGestionReparaciones.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Gestión Proveedores"));
+
+        buttonNuevaReparacion.setText("Nueva");
+        buttonNuevaReparacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonNuevaReparacionActionPerformed(evt);
+            }
+        });
+
+        buttonEliminarReparacion.setText("Eliminar");
+        buttonEliminarReparacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonEliminarReparacionActionPerformed(evt);
+            }
+        });
+
+        buttonActualizarReparacion.setText("Actualizar");
+        buttonActualizarReparacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonActualizarReparacionActionPerformed(evt);
+            }
+        });
+
+        jLabel9.setText("Código:");
+
+        jLabel10.setText("Nombre:");
+
+        jLabel11.setText("Ciudad:");
+
+        javax.swing.GroupLayout contenedorGestionReparacionesLayout = new javax.swing.GroupLayout(contenedorGestionReparaciones);
+        contenedorGestionReparaciones.setLayout(contenedorGestionReparacionesLayout);
+        contenedorGestionReparacionesLayout.setHorizontalGroup(
+            contenedorGestionReparacionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(contenedorGestionReparacionesLayout.createSequentialGroup()
+                .addGroup(contenedorGestionReparacionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(contenedorGestionReparacionesLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(buttonNuevaReparacion, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(buttonEliminarReparacion, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(buttonActualizarReparacion, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE))
+                    .addGroup(contenedorGestionReparacionesLayout.createSequentialGroup()
+                        .addGroup(contenedorGestionReparacionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 68, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addGroup(contenedorGestionReparacionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(textFieldCodigoReparacion, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE)
+                            .addComponent(textFieldCiudadReparacion, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE)
+                            .addComponent(textFieldNombreReparacion, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE))))
+                .addContainerGap())
+        );
+        contenedorGestionReparacionesLayout.setVerticalGroup(
+            contenedorGestionReparacionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, contenedorGestionReparacionesLayout.createSequentialGroup()
+                .addGroup(contenedorGestionReparacionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(textFieldCodigoReparacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(contenedorGestionReparacionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel10)
+                    .addComponent(textFieldNombreReparacion, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(contenedorGestionReparacionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel11)
+                    .addComponent(textFieldCiudadReparacion, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(38, 38, 38)
+                .addGroup(contenedorGestionReparacionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(buttonNuevaReparacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(buttonEliminarReparacion)
+                    .addComponent(buttonActualizarReparacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+        );
+
+        contenedorTablaProveedores1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        tablaReparaciones.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3"
+            }
+        ));
+        jScrollPane3.setViewportView(tablaReparaciones);
+
+        javax.swing.GroupLayout contenedorTablaProveedores1Layout = new javax.swing.GroupLayout(contenedorTablaProveedores1);
+        contenedorTablaProveedores1.setLayout(contenedorTablaProveedores1Layout);
+        contenedorTablaProveedores1Layout.setHorizontalGroup(
+            contenedorTablaProveedores1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 626, Short.MAX_VALUE)
+        );
+        contenedorTablaProveedores1Layout.setVerticalGroup(
+            contenedorTablaProveedores1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
+        );
+
+        contenedorBusquedaAvGestiones.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Búsqueda Avanzada"));
+
+        javax.swing.GroupLayout contenedorBusquedaAvGestionesLayout = new javax.swing.GroupLayout(contenedorBusquedaAvGestiones);
+        contenedorBusquedaAvGestiones.setLayout(contenedorBusquedaAvGestionesLayout);
+        contenedorBusquedaAvGestionesLayout.setHorizontalGroup(
+            contenedorBusquedaAvGestionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 296, Short.MAX_VALUE)
+        );
+        contenedorBusquedaAvGestionesLayout.setVerticalGroup(
+            contenedorBusquedaAvGestionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 127, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout contenedorReparacionesLayout = new javax.swing.GroupLayout(contenedorReparaciones);
+        contenedorReparaciones.setLayout(contenedorReparacionesLayout);
+        contenedorReparacionesLayout.setHorizontalGroup(
+            contenedorReparacionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(contenedorTablaProveedores1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, contenedorReparacionesLayout.createSequentialGroup()
+                .addComponent(contenedorGestionReparaciones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(contenedorBusquedaAvGestiones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        contenedorReparacionesLayout.setVerticalGroup(
+            contenedorReparacionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, contenedorReparacionesLayout.createSequentialGroup()
+                .addComponent(contenedorTablaProveedores1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addGroup(contenedorReparacionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(contenedorGestionReparaciones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(contenedorBusquedaAvGestiones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 634, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel3Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(contenedorReparaciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 383, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel3Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(contenedorReparaciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
 
-        jTabbedPane1.addTab("tab3", jPanel3);
+        jTabbedPane1.addTab("Reparaciones", jPanel3);
 
         javax.swing.GroupLayout contenedorPrincipalLayout = new javax.swing.GroupLayout(contenedorPrincipal);
         contenedorPrincipal.setLayout(contenedorPrincipalLayout);
@@ -622,6 +784,18 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_buttonActualizarProveedorActionPerformed
 
+    private void buttonNuevaReparacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonNuevaReparacionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonNuevaReparacionActionPerformed
+
+    private void buttonEliminarReparacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEliminarReparacionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonEliminarReparacionActionPerformed
+
+    private void buttonActualizarReparacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonActualizarReparacionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonActualizarReparacionActionPerformed
+
     /**
     * @param args the command line arguments
     */
@@ -637,18 +811,27 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton actualizarButton;
     private javax.swing.JButton buttonActualizarProveedor;
+    private javax.swing.JButton buttonActualizarReparacion;
     private javax.swing.JButton buttonEliminarProveedor;
+    private javax.swing.JButton buttonEliminarReparacion;
+    private javax.swing.JButton buttonNuevaReparacion;
     private javax.swing.JButton buttonNuevoProveedor;
+    private javax.swing.JPanel contenedorBusquedaAvGestiones;
     private javax.swing.JPanel contenedorBusquedaAvProveedores;
     private javax.swing.JPanel contenedorGestionProveedores;
+    private javax.swing.JPanel contenedorGestionReparaciones;
     private javax.swing.JPanel contenedorPiezas;
     private javax.swing.JPanel contenedorPiezasBusquedaAvan;
     private javax.swing.JPanel contenedorPiezasControl;
     private javax.swing.JPanel contenedorPrincipal;
     private javax.swing.JPanel contenedorProveedores;
+    private javax.swing.JPanel contenedorReparaciones;
     private javax.swing.JPanel contenedorTablaProveedores;
+    private javax.swing.JPanel contenedorTablaProveedores1;
     private javax.swing.JButton eliminarButton;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -656,20 +839,26 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JButton nuevaButton;
     private javax.swing.JTable tablaPiezas;
     private javax.swing.JTable tablaProveedores;
+    private javax.swing.JTable tablaReparaciones;
     private javax.swing.JTextField textFieldApellidos;
+    private javax.swing.JTextField textFieldCiudadReparacion;
     private javax.swing.JTextField textFieldCodigoPieza;
     private javax.swing.JTextField textFieldCodigoProveedor;
+    private javax.swing.JTextField textFieldCodigoReparacion;
     private javax.swing.JTextField textFieldDescripcion;
     private javax.swing.JTextField textFieldDireccion;
     private javax.swing.JTextField textFieldNombre;
     private javax.swing.JTextField textFieldNombreProveedor;
+    private javax.swing.JTextField textFieldNombreReparacion;
     private javax.swing.JTextField textFieldPrecio;
     // End of variables declaration//GEN-END:variables
 
