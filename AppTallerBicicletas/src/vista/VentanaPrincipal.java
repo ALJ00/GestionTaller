@@ -858,9 +858,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
            
 
             // actualizo la lista de proveedores del table model y por lo tanto la fila en el Jtable
-            this.tablaProveedores.getModel().setValueAt(cod, rowSeleccionada, 0);
-            this.tablaProveedores.getModel().setValueAt(name, rowSeleccionada, 1);
-            this.tablaProveedores.getModel().setValueAt(apell, rowSeleccionada, 2);
+            this.tablaReparaciones.getModel().setValueAt(cod, rowSeleccionada, 0);
+            this.tablaReparaciones.getModel().setValueAt(name, rowSeleccionada, 1);
+            this.tablaReparaciones.getModel().setValueAt(apell, rowSeleccionada, 2);
             
 
             Reparaciones p = new Reparaciones(cod,name,apell);
