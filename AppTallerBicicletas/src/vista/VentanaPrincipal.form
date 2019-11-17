@@ -274,9 +274,9 @@
                                       <EmptySpace pref="36" max="32767" attributes="0"/>
                                       <Component id="buttonBusqAvanzPiezas" min="-2" pref="88" max="-2" attributes="0"/>
                                   </Group>
-                                  <Component id="jRadioButton1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jRadioButton2" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jRadioButton3" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jRadioButtonPiezasCodigo" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jRadioButtonPiezasNombre" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jRadioButtonTodasLasPiezas" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
@@ -286,11 +286,11 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jRadioButton1" min="-2" max="-2" attributes="0"/>
+                              <Component id="jRadioButtonPiezasCodigo" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jRadioButton2" min="-2" max="-2" attributes="0"/>
+                              <Component id="jRadioButtonPiezasNombre" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="jRadioButton3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jRadioButtonTodasLasPiezas" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="textFieldBusquAvanzPiezas" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -302,17 +302,17 @@
                     </DimensionLayout>
                   </Layout>
                   <SubComponents>
-                    <Component class="javax.swing.JRadioButton" name="jRadioButton1">
+                    <Component class="javax.swing.JRadioButton" name="jRadioButtonPiezasCodigo">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Por c&#xf3;digo"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JRadioButton" name="jRadioButton2">
+                    <Component class="javax.swing.JRadioButton" name="jRadioButtonPiezasNombre">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Por nombre"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JRadioButton" name="jRadioButton3">
+                    <Component class="javax.swing.JRadioButton" name="jRadioButtonTodasLasPiezas">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Listar piezas"/>
                       </Properties>
@@ -323,6 +323,9 @@
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Buscar"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonBusqAvanzPiezasActionPerformed"/>
+                      </Events>
                     </Component>
                   </SubComponents>
                 </Container>

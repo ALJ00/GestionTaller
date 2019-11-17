@@ -86,9 +86,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaPiezas = new javax.swing.JTable();
         contenedorPiezasBusquedaAvan = new javax.swing.JPanel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jRadioButton3 = new javax.swing.JRadioButton();
+        jRadioButtonPiezasCodigo = new javax.swing.JRadioButton();
+        jRadioButtonPiezasNombre = new javax.swing.JRadioButton();
+        jRadioButtonTodasLasPiezas = new javax.swing.JRadioButton();
         textFieldBusquAvanzPiezas = new javax.swing.JTextField();
         buttonBusqAvanzPiezas = new javax.swing.JButton();
         contenedorProveedores = new javax.swing.JPanel();
@@ -237,13 +237,18 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         contenedorPiezasBusquedaAvan.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Búsqueda Avanzada"));
 
-        jRadioButton1.setText("Por código");
+        jRadioButtonPiezasCodigo.setText("Por código");
 
-        jRadioButton2.setText("Por nombre");
+        jRadioButtonPiezasNombre.setText("Por nombre");
 
-        jRadioButton3.setText("Listar piezas");
+        jRadioButtonTodasLasPiezas.setText("Listar piezas");
 
         buttonBusqAvanzPiezas.setText("Buscar");
+        buttonBusqAvanzPiezas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonBusqAvanzPiezasActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout contenedorPiezasBusquedaAvanLayout = new javax.swing.GroupLayout(contenedorPiezasBusquedaAvan);
         contenedorPiezasBusquedaAvan.setLayout(contenedorPiezasBusquedaAvanLayout);
@@ -256,20 +261,20 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                         .addComponent(textFieldBusquAvanzPiezas, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
                         .addComponent(buttonBusqAvanzPiezas, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jRadioButton1)
-                    .addComponent(jRadioButton2)
-                    .addComponent(jRadioButton3))
+                    .addComponent(jRadioButtonPiezasCodigo)
+                    .addComponent(jRadioButtonPiezasNombre)
+                    .addComponent(jRadioButtonTodasLasPiezas))
                 .addContainerGap())
         );
         contenedorPiezasBusquedaAvanLayout.setVerticalGroup(
             contenedorPiezasBusquedaAvanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(contenedorPiezasBusquedaAvanLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jRadioButton1)
+                .addComponent(jRadioButtonPiezasCodigo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jRadioButton2)
+                .addComponent(jRadioButtonPiezasNombre)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jRadioButton3)
+                .addComponent(jRadioButtonTodasLasPiezas)
                 .addGap(18, 18, 18)
                 .addGroup(contenedorPiezasBusquedaAvanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(textFieldBusquAvanzPiezas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1090,6 +1095,39 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         this.tablaProveedores.setModel(this.modeloTablaProveedores);
     }//GEN-LAST:event_buttonBusqAvanzProveedoresActionPerformed
 
+    private void buttonBusqAvanzPiezasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBusqAvanzPiezasActionPerformed
+        // TODO add your handling code here:
+
+        String code = jRadioButtonPiezasCodigo.getText();
+        String nombre = jRadioButtonPiezasNombre.getText();
+        
+        String datoText = textFieldBusquAvanzPiezas.getText().trim();
+
+        ArrayList arrayListPiezas = new ArrayList();
+        Piezas pieza = new Piezas();
+
+        if(jRadioButtonPiezasCodigo.isSelected() && !textFieldBusquAvanzPiezas.getText().equalsIgnoreCase("")){
+
+            arrayListPiezas = pieza.listarPiezasPorCampo(datoText, code);
+
+        }else if(jRadioButtonPiezasNombre.isSelected()&& !textFieldBusquAvanzPiezas.getText().equalsIgnoreCase("")){
+
+            arrayListPiezas = pieza.listarPiezasPorCampo(datoText, code);
+
+        }else if (jRadioButtonTodasLasPiezas.isSelected()){
+
+             arrayListPiezas = pieza.listarPiezas();
+
+        }else{
+            JOptionPane.showMessageDialog(null, "Seleccione una opción e introduzca dato a buscar");
+
+        }
+
+        this.modeloTablaPiezas = new ModeloTablaPiezas(arrayListPiezas);
+        this.tablaPiezas.setModel(this.modeloTablaPiezas);
+
+    }//GEN-LAST:event_buttonBusqAvanzPiezasActionPerformed
+
     /**
     * @param args the command line arguments
     */
@@ -1138,9 +1176,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton3;
     private javax.swing.JRadioButton jRadioButtonCiudadReparacion;
     private javax.swing.JRadioButton jRadioButtonCodigoProveedores;
     private javax.swing.JRadioButton jRadioButtonCodigoReparacion;
@@ -1149,6 +1184,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JRadioButton jRadioButtonListarReparaciones;
     private javax.swing.JRadioButton jRadioButtonNombreProveedores;
     private javax.swing.JRadioButton jRadioButtonNombreReparacion;
+    private javax.swing.JRadioButton jRadioButtonPiezasCodigo;
+    private javax.swing.JRadioButton jRadioButtonPiezasNombre;
+    private javax.swing.JRadioButton jRadioButtonTodasLasPiezas;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
