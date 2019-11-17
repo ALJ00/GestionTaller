@@ -80,7 +80,7 @@
                           <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
                           <Component id="contenedorPiezasBusquedaAvan" max="32767" attributes="0"/>
                       </Group>
-                      <Component id="jScrollPane1" alignment="1" pref="668" max="32767" attributes="1"/>
+                      <Component id="jScrollPane1" alignment="1" pref="724" max="32767" attributes="1"/>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
@@ -114,11 +114,11 @@
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="nuevaButton" pref="85" max="32767" attributes="0"/>
+                              <Component id="nuevaButton" pref="95" max="32767" attributes="0"/>
                               <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                              <Component id="eliminarButton" pref="88" max="32767" attributes="0"/>
+                              <Component id="eliminarButton" pref="96" max="32767" attributes="0"/>
                               <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                              <Component id="actualizarButton" pref="85" max="32767" attributes="0"/>
+                              <Component id="actualizarButton" pref="95" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -129,10 +129,10 @@
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="textFieldPrecio" alignment="1" pref="202" max="32767" attributes="0"/>
-                                  <Component id="textFieldNombre" pref="202" max="32767" attributes="0"/>
-                                  <Component id="textFieldCodigoPieza" alignment="0" pref="202" max="32767" attributes="0"/>
-                                  <Component id="textFieldDescripcion" alignment="1" pref="202" max="32767" attributes="0"/>
+                                  <Component id="textFieldPrecio" alignment="1" pref="230" max="32767" attributes="0"/>
+                                  <Component id="textFieldNombre" pref="230" max="32767" attributes="0"/>
+                                  <Component id="textFieldCodigoPieza" alignment="0" pref="230" max="32767" attributes="0"/>
+                                  <Component id="textFieldDescripcion" alignment="1" pref="230" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -266,7 +266,7 @@
                   <Layout>
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <EmptySpace min="0" pref="322" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="350" max="32767" attributes="0"/>
                       </Group>
                     </DimensionLayout>
                     <DimensionLayout dim="1">
@@ -344,7 +344,7 @@
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Component id="buttonEliminarProveedor" min="-2" pref="91" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="buttonActualizarProveedor" pref="108" max="32767" attributes="0"/>
+                                      <Component id="buttonActualizarProveedor" pref="136" max="32767" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
@@ -355,10 +355,10 @@
                                       </Group>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="textFieldCodigoProveedor" pref="224" max="32767" attributes="0"/>
-                                          <Component id="textFieldDireccion" pref="224" max="32767" attributes="0"/>
-                                          <Component id="textFieldApellidos" pref="224" max="32767" attributes="0"/>
-                                          <Component id="textFieldNombreProveedor" pref="224" max="32767" attributes="0"/>
+                                          <Component id="textFieldCodigoProveedor" pref="252" max="32767" attributes="0"/>
+                                          <Component id="textFieldDireccion" pref="252" max="32767" attributes="0"/>
+                                          <Component id="textFieldApellidos" pref="252" max="32767" attributes="0"/>
+                                          <Component id="textFieldNombreProveedor" pref="252" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
@@ -465,7 +465,7 @@
                   <Layout>
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jScrollPane2" alignment="0" pref="662" max="32767" attributes="0"/>
+                          <Component id="jScrollPane2" alignment="0" pref="718" max="32767" attributes="0"/>
                       </Group>
                     </DimensionLayout>
                     <DimensionLayout dim="1">
@@ -514,7 +514,7 @@
                   <Layout>
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <EmptySpace min="0" pref="314" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="342" max="32767" attributes="0"/>
                       </Group>
                     </DimensionLayout>
                     <DimensionLayout dim="1">
@@ -538,7 +538,7 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <EmptySpace min="0" pref="670" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="726" max="32767" attributes="0"/>
                       <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                           <Component id="contenedorReparaciones" alignment="1" max="32767" attributes="0"/>
                       </Group>
@@ -623,9 +623,9 @@
                                           </Group>
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="textFieldNombreReparacion" pref="214" max="32767" attributes="0"/>
+                                              <Component id="textFieldCiudadReparacion" pref="214" max="32767" attributes="0"/>
                                               <Component id="textFieldCodigoReparacion" alignment="0" pref="214" max="32767" attributes="0"/>
-                                              <Component id="textFieldCiudadReparacion" alignment="0" pref="214" max="32767" attributes="0"/>
-                                              <Component id="textFieldNombreReparacion" alignment="0" pref="214" max="32767" attributes="0"/>
                                           </Group>
                                       </Group>
                                   </Group>
@@ -643,12 +643,12 @@
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="textFieldNombreReparacion" alignment="3" min="-2" pref="17" max="-2" attributes="0"/>
+                                      <Component id="textFieldNombreReparacion" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="textFieldCiudadReparacion" alignment="3" min="-2" pref="17" max="-2" attributes="0"/>
+                                      <Component id="textFieldCiudadReparacion" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
@@ -720,12 +720,12 @@
                       <Layout>
                         <DimensionLayout dim="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jScrollPane3" alignment="0" pref="662" max="32767" attributes="0"/>
+                              <Component id="jScrollPane3" alignment="0" pref="718" max="32767" attributes="0"/>
                           </Group>
                         </DimensionLayout>
                         <DimensionLayout dim="1">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jScrollPane3" alignment="0" pref="181" max="32767" attributes="0"/>
+                              <Component id="jScrollPane3" alignment="0" pref="176" max="32767" attributes="0"/>
                           </Group>
                         </DimensionLayout>
                       </Layout>
@@ -790,15 +790,78 @@
                       <Layout>
                         <DimensionLayout dim="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <EmptySpace min="0" pref="328" max="32767" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jRadioButtonCodigoReparacion" alignment="0" pref="374" max="32767" attributes="0"/>
+                                      <Component id="jRadioButtonNombreReparacion" alignment="0" pref="374" max="32767" attributes="0"/>
+                                      <Component id="jRadioButtonCiudadReparacion" alignment="0" pref="374" max="32767" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="jRadioButtonListarReparaciones" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace pref="257" max="32767" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="1" attributes="0">
+                                          <Component id="textFieldBusqAvanzReparaciones" min="-2" pref="267" max="-2" attributes="0"/>
+                                          <EmptySpace max="32767" attributes="0"/>
+                                          <Component id="jButtonBusqAvanzreparaciones" min="-2" pref="101" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                              </Group>
                           </Group>
                         </DimensionLayout>
                         <DimensionLayout dim="1">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <EmptySpace min="0" pref="141" max="32767" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jRadioButtonCodigoReparacion" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="jRadioButtonNombreReparacion" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="jRadioButtonCiudadReparacion" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jRadioButtonListarReparaciones" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="jButtonBusqAvanzreparaciones" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="textFieldBusqAvanzReparaciones" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="32767" attributes="0"/>
+                              </Group>
                           </Group>
                         </DimensionLayout>
                       </Layout>
+                      <SubComponents>
+                        <Component class="javax.swing.JRadioButton" name="jRadioButtonCodigoReparacion">
+                          <Properties>
+                            <Property name="text" type="java.lang.String" value="Por c&#xf3;digo"/>
+                          </Properties>
+                        </Component>
+                        <Component class="javax.swing.JRadioButton" name="jRadioButtonNombreReparacion">
+                          <Properties>
+                            <Property name="text" type="java.lang.String" value="Por nombre"/>
+                          </Properties>
+                        </Component>
+                        <Component class="javax.swing.JRadioButton" name="jRadioButtonCiudadReparacion">
+                          <Properties>
+                            <Property name="text" type="java.lang.String" value="Por ciudad"/>
+                          </Properties>
+                        </Component>
+                        <Component class="javax.swing.JRadioButton" name="jRadioButtonListarReparaciones">
+                          <Properties>
+                            <Property name="text" type="java.lang.String" value="Listar reparaciones"/>
+                          </Properties>
+                        </Component>
+                        <Component class="javax.swing.JButton" name="jButtonBusqAvanzreparaciones">
+                          <Properties>
+                            <Property name="text" type="java.lang.String" value="Buscar"/>
+                          </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonBusqAvanzreparacionesActionPerformed"/>
+                          </Events>
+                        </Component>
+                        <Component class="javax.swing.JTextField" name="textFieldBusqAvanzReparaciones">
+                        </Component>
+                      </SubComponents>
                     </Container>
                   </SubComponents>
                 </Container>
