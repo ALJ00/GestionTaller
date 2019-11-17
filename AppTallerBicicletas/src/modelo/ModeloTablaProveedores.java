@@ -63,7 +63,7 @@ public class ModeloTablaProveedores extends AbstractTableModel{
 
     }
 
-    public void eliminarPieza(int rowIndex){
+    public void eliminarProveedor(int rowIndex){
         lista.remove(rowIndex);
         fireTableDataChanged();
 

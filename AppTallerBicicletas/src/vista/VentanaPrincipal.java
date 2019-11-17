@@ -211,7 +211,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         contenedorPiezasLayout.setHorizontalGroup(
             contenedorPiezasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(contenedorPiezasLayout.createSequentialGroup()
-                .addComponent(contenedorPiezasControl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(contenedorPiezasControl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(contenedorPiezasBusquedaAvan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 632, Short.MAX_VALUE)
@@ -221,7 +221,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, contenedorPiezasLayout.createSequentialGroup()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 217, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(contenedorPiezasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                .addGroup(contenedorPiezasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(contenedorPiezasBusquedaAvan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(contenedorPiezasControl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
@@ -282,10 +282,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                             .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 68, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
                         .addGroup(contenedorGestionProveedoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(textFieldCodigoProveedor, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE)
                             .addComponent(textFieldDireccion, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE)
                             .addComponent(textFieldApellidos, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE)
-                            .addComponent(textFieldNombreProveedor, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE)
-                            .addComponent(textFieldCodigoProveedor, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE))))
+                            .addComponent(textFieldNombreProveedor, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         contenedorGestionProveedoresLayout.setVerticalGroup(
@@ -293,7 +293,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, contenedorGestionProveedoresLayout.createSequentialGroup()
                 .addGroup(contenedorGestionProveedoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(textFieldCodigoProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(textFieldCodigoProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(contenedorGestionProveedoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
@@ -336,7 +336,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         );
         contenedorTablaProveedoresLayout.setVerticalGroup(
             contenedorTablaProveedoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
         );
 
         contenedorBusquedaAvProveedores.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Búsqueda Avanzada"));
@@ -349,7 +349,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         );
         contenedorBusquedaAvProveedoresLayout.setVerticalGroup(
             contenedorBusquedaAvProveedoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 122, Short.MAX_VALUE)
+            .addGap(0, 127, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout contenedorProveedoresLayout = new javax.swing.GroupLayout(contenedorProveedores);
@@ -473,21 +473,12 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             this.tablaPiezas.getModel().setValueAt(p, rowSeleccionada, 2);
             this.tablaPiezas.getModel().setValueAt(d, rowSeleccionada, 3);
 
-
-
-
             float price = Float.valueOf(p);
 
             Piezas nuevaPieza = new Piezas(cod,n,price,d);
 
-
             //actualizo la pieza en la bd
             nuevaPieza.modificarPieza(nuevaPieza);
-
-
-
-
-
 
         }else{
 
@@ -504,29 +495,30 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         String price = textFieldPrecio.getText();
         String description = textFieldDescripcion.getText();
 
+        float p = Float.valueOf(price);
+
+        Piezas nuevaPieza = new Piezas(code,name,p,description);
+
         if(code.equalsIgnoreCase("")||name.equals("")
                 ||price.equals("")||description.equals("") ){
 
             JOptionPane.showMessageDialog(null, "Introduzca todos los campos");
-        }else {
 
-            float p = Float.valueOf(price);
+        }else if ( nuevaPieza.insertarPieza(nuevaPieza)){
 
-
-
-            Piezas nuevaPieza = new Piezas(code,name,p,description);
-
-
-            // inserto la nueva pieza en la bd
-            nuevaPieza.insertarPieza(nuevaPieza);
-
-            // limpio los textfields
-            limpiarTextfields();
+             
 
             // inserto en la jtable
            this.modeloTablaPiezas.adicionarPieza(nuevaPieza);
 
+           JOptionPane.showMessageDialog(null, "PIEZA INGRESADA CORRECTAMENTE");
+
         }
+
+        // limpio los textfields
+            limpiarTextfieldsPiezas();
+
+           
     }//GEN-LAST:event_nuevaButtonActionPerformed
 
     private void buttonNuevoProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonNuevoProveedorActionPerformed
@@ -550,9 +542,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             
             JOptionPane.showMessageDialog(null, "PROVEEDOR GUARDADO EN BD CORRECTAMENTE");
             
-            // limpio los textfields
-            limpiarTextfields();
-
+           
             // inserto en la jtable
            this.modeloTablaProveedores.adicionarProveedor(nuevoProveedor);
             
@@ -560,29 +550,76 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         }
 
 
-
-
-           
-
-
-
-            
-
-
-            
-
-
-        
+        // limpio los textfields
+            limpiarTextFieldsProveedores();
 
 
     }//GEN-LAST:event_buttonNuevoProveedorActionPerformed
 
     private void buttonEliminarProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEliminarProveedorActionPerformed
         // TODO add your handling code here:
+
+        //obtengo la fila seleccionada
+        int rowSeleccionada = this.tablaProveedores.getSelectedRow();
+
+        // compruebo que el usuario haya elegido alguna fila
+        if (rowSeleccionada == -1) {
+
+            JOptionPane.showMessageDialog(null, "SELECCIONE UNA FILA");
+
+        } else {
+
+            // obtengo los datos de la fila
+            String cod = this.tablaProveedores.getModel().getValueAt(rowSeleccionada, 0).toString();
+            String n = this.tablaProveedores.getModel().getValueAt(rowSeleccionada, 1).toString();
+            String ap = this.tablaProveedores.getModel().getValueAt(rowSeleccionada, 2).toString();
+            String dir = this.tablaProveedores.getModel().getValueAt(rowSeleccionada, 3).toString();
+
+            // elimino del modelo la row
+            this.modeloTablaProveedores.eliminarProveedor(rowSeleccionada);
+
+            // creo el objeto
+            Proveedores proveedor = new Proveedores(cod, n, ap, dir);
+
+            // borro de la bd el proveedor
+            proveedor.borrarProveedor(proveedor);
+
+        }
+
     }//GEN-LAST:event_buttonEliminarProveedorActionPerformed
 
     private void buttonActualizarProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonActualizarProveedorActionPerformed
         // TODO add your handling code here:
+
+        //obtengo la fila seleccionada
+        int rowSeleccionada = this.tablaProveedores.getSelectedRow();
+
+        // compruebo que una celda esté seleccionada
+        if(rowSeleccionada>=0){
+
+            //obtengo los valores de la fila que se está editando
+            String cod = this.tablaProveedores.getValueAt(rowSeleccionada, 0).toString();
+            String name = this.tablaProveedores.getValueAt(rowSeleccionada, 1).toString();
+            String apell = this.tablaProveedores.getValueAt(rowSeleccionada, 2).toString();
+            String direc = this.tablaProveedores.getValueAt(rowSeleccionada, 3).toString();
+
+            // actualizo la lista de proveedores del table model y por lo tanto la fila en el Jtable
+            this.tablaProveedores.getModel().setValueAt(cod, rowSeleccionada, 0);
+            this.tablaProveedores.getModel().setValueAt(name, rowSeleccionada, 1);
+            this.tablaProveedores.getModel().setValueAt(apell, rowSeleccionada, 2);
+            this.tablaProveedores.getModel().setValueAt(direc, rowSeleccionada, 3);
+
+
+
+            Proveedores p = new Proveedores(cod,name,apell,direc);
+
+            //actualizo el prov en la bd
+            p.modificarProveedor(p);
+
+        }else{
+
+            JOptionPane.showMessageDialog(null, "SELECCIONE UNA FILA ");
+        }
     }//GEN-LAST:event_buttonActualizarProveedorActionPerformed
 
     /**
@@ -639,11 +676,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
      private ModeloTablaPiezas modeloTablaPiezas;
      private ModeloTablaProveedores modeloTablaProveedores;
 
-
-
-    // metodos personales
+  
      // metod to clean textFields
-    public void limpiarTextfields(){
+    public void limpiarTextfieldsPiezas(){
 
          textFieldCodigoPieza.setText("");
          textFieldNombre.setText("");
@@ -653,5 +688,12 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     }
 
+    // metod to clean proveedores TextFields
+    public void limpiarTextFieldsProveedores(){
+         textFieldCodigoProveedor.setText("");
+         textFieldNombreProveedor.setText("");
+         textFieldApellidos.setText("");
+         textFieldDireccion.setText("");
+    }
     
 }

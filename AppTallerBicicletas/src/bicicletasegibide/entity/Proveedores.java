@@ -134,7 +134,7 @@ public class Proveedores  implements java.io.Serializable {
     }
 
     // actualizar proveedores
-    public void modificarPieza(Proveedores proveedor){
+    public void modificarProveedor(Proveedores proveedor){
 
         SessionFactory sesion = NewHibernateUtil.getSessionFactory();
         Session session = sesion.openSession();
@@ -179,7 +179,7 @@ public class Proveedores  implements java.io.Serializable {
 
     }
 
-    // listar las proveedores
+    // listar los proveedores
     public ArrayList<Proveedores> listarProveedores(){
 
         SessionFactory sesion = NewHibernateUtil.getSessionFactory();
@@ -210,23 +210,23 @@ public class Proveedores  implements java.io.Serializable {
     }
 
     // borrar proveedores
-    public void borrarPieza(Proveedores proveedor){
+    public void borrarProveedor(Proveedores proveedor){
 
         SessionFactory sesion = NewHibernateUtil.getSessionFactory();
         Session session = sesion.openSession();
         Transaction tx = session.beginTransaction();
 
         //PIEZA A ELIMINAR
-        Piezas de = (Piezas) session.load(Piezas.class, (String) proveedor.getCodigoproveedor());
+        Proveedores de = (Proveedores) session.load(Proveedores.class, (String) proveedor.getCodigoproveedor());
 
         try{
             session.delete(de);
             tx.commit();
-            JOptionPane.showMessageDialog(null, "PIEZA BORRADA CORRECTAMENTE");
+            JOptionPane.showMessageDialog(null, "PROVEEDOR BORRADo CORRECTAMENTE");
         } catch (ObjectNotFoundException o){
 
-            System.out.println ("NO EXISTE LA PIEZA");
-            JOptionPane.showMessageDialog(null, "NO EXISTE LA PIEZA");
+            System.out.println ("NO EXISTE EL PROVEEDOR");
+            JOptionPane.showMessageDialog(null, "NO EXISTE LA PROVEEDOR");
 
         } catch (ConstraintViolationException c){
 

@@ -93,12 +93,13 @@ public class Piezas  implements java.io.Serializable {
     // ********************** consultas ********************************
 
     // insertar nueva pieza
-    public void insertarPieza(Piezas piezanueva){
+    public boolean insertarPieza(Piezas piezanueva){
 
         SessionFactory sesion = NewHibernateUtil.getSessionFactory();
         Session session = sesion.openSession();
         Transaction tx = session.beginTransaction();
 
+        boolean resp = false;
 
         try{
 
@@ -107,7 +108,8 @@ public class Piezas  implements java.io.Serializable {
             try {
                 tx.commit();
 
-                JOptionPane.showMessageDialog(null, "PIEZA GUARDADA EN BD CORRECTAMENTE");
+                resp = true;
+                //JOptionPane.showMessageDialog(null, "PIEZA GUARDADA EN BD CORRECTAMENTE");
 
             } catch (ConstraintViolationException e) {
 
@@ -118,6 +120,7 @@ public class Piezas  implements java.io.Serializable {
                         e.getSQLException().getMessage());
                 JOptionPane.showMessageDialog(null, "PIEZA DUPLICADO");
 
+                resp = false;
             }
 
 
@@ -130,6 +133,8 @@ public class Piezas  implements java.io.Serializable {
         }
 
         session.close();
+
+        return resp;
 
     }
 
