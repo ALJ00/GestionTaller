@@ -108,6 +108,12 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         tablaProveedores = new javax.swing.JTable();
         contenedorBusquedaAvProveedores = new javax.swing.JPanel();
+        jRadioButton4 = new javax.swing.JRadioButton();
+        jRadioButton5 = new javax.swing.JRadioButton();
+        jRadioButton6 = new javax.swing.JRadioButton();
+        jRadioButton7 = new javax.swing.JRadioButton();
+        textFieldBusqAvanProveedores = new javax.swing.JTextField();
+        buttonBusqAvanzProveedores = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         contenedorReparaciones = new javax.swing.JPanel();
         contenedorGestionReparaciones = new javax.swing.JPanel();
@@ -338,7 +344,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(buttonEliminarProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(buttonActualizarProveedor, javax.swing.GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE))
+                        .addComponent(buttonActualizarProveedor, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE))
                     .addGroup(contenedorGestionProveedoresLayout.createSequentialGroup()
                         .addGroup(contenedorGestionProveedoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -347,10 +353,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                             .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 68, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
                         .addGroup(contenedorGestionProveedoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(textFieldCodigoProveedor, javax.swing.GroupLayout.DEFAULT_SIZE, 252, Short.MAX_VALUE)
-                            .addComponent(textFieldDireccion, javax.swing.GroupLayout.DEFAULT_SIZE, 252, Short.MAX_VALUE)
-                            .addComponent(textFieldApellidos, javax.swing.GroupLayout.DEFAULT_SIZE, 252, Short.MAX_VALUE)
-                            .addComponent(textFieldNombreProveedor, javax.swing.GroupLayout.DEFAULT_SIZE, 252, Short.MAX_VALUE))))
+                            .addComponent(textFieldCodigoProveedor, javax.swing.GroupLayout.DEFAULT_SIZE, 257, Short.MAX_VALUE)
+                            .addComponent(textFieldDireccion, javax.swing.GroupLayout.DEFAULT_SIZE, 257, Short.MAX_VALUE)
+                            .addComponent(textFieldApellidos, javax.swing.GroupLayout.DEFAULT_SIZE, 257, Short.MAX_VALUE)
+                            .addComponent(textFieldNombreProveedor, javax.swing.GroupLayout.DEFAULT_SIZE, 257, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         contenedorGestionProveedoresLayout.setVerticalGroup(
@@ -401,20 +407,53 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         );
         contenedorTablaProveedoresLayout.setVerticalGroup(
             contenedorTablaProveedoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 192, Short.MAX_VALUE)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 189, Short.MAX_VALUE)
         );
 
         contenedorBusquedaAvProveedores.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Búsqueda Avanzada"));
+
+        jRadioButton4.setText("Por código");
+
+        jRadioButton5.setText("Por nombre");
+
+        jRadioButton6.setText("Por dirección");
+
+        jRadioButton7.setText("Listar proveedores");
+
+        buttonBusqAvanzProveedores.setText("Buscar");
 
         javax.swing.GroupLayout contenedorBusquedaAvProveedoresLayout = new javax.swing.GroupLayout(contenedorBusquedaAvProveedores);
         contenedorBusquedaAvProveedores.setLayout(contenedorBusquedaAvProveedoresLayout);
         contenedorBusquedaAvProveedoresLayout.setHorizontalGroup(
             contenedorBusquedaAvProveedoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 342, Short.MAX_VALUE)
+            .addGroup(contenedorBusquedaAvProveedoresLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(contenedorBusquedaAvProveedoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jRadioButton4)
+                    .addComponent(jRadioButton5)
+                    .addComponent(jRadioButton6)
+                    .addComponent(jRadioButton7)
+                    .addGroup(contenedorBusquedaAvProveedoresLayout.createSequentialGroup()
+                        .addComponent(textFieldBusqAvanProveedores, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(buttonBusqAvanzProveedores, javax.swing.GroupLayout.DEFAULT_SIZE, 95, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         contenedorBusquedaAvProveedoresLayout.setVerticalGroup(
             contenedorBusquedaAvProveedoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 130, Short.MAX_VALUE)
+            .addGroup(contenedorBusquedaAvProveedoresLayout.createSequentialGroup()
+                .addComponent(jRadioButton4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jRadioButton5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jRadioButton6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jRadioButton7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(contenedorBusquedaAvProveedoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(textFieldBusqAvanProveedores, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonBusqAvanzProveedores))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout contenedorProveedoresLayout = new javax.swing.GroupLayout(contenedorProveedores);
@@ -1019,6 +1058,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton buttonActualizarProveedor;
     private javax.swing.JButton buttonActualizarReparacion;
     private javax.swing.JButton buttonBusqAvanzPiezas;
+    private javax.swing.JButton buttonBusqAvanzProveedores;
     private javax.swing.JButton buttonEliminarProveedor;
     private javax.swing.JButton buttonEliminarReparacion;
     private javax.swing.JButton buttonNuevaReparacion;
@@ -1052,6 +1092,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JRadioButton jRadioButton3;
+    private javax.swing.JRadioButton jRadioButton4;
+    private javax.swing.JRadioButton jRadioButton5;
+    private javax.swing.JRadioButton jRadioButton6;
+    private javax.swing.JRadioButton jRadioButton7;
     private javax.swing.JRadioButton jRadioButtonCiudadReparacion;
     private javax.swing.JRadioButton jRadioButtonCodigoReparacion;
     private javax.swing.JRadioButton jRadioButtonListarReparaciones;
@@ -1065,6 +1109,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JTable tablaProveedores;
     private javax.swing.JTable tablaReparaciones;
     private javax.swing.JTextField textFieldApellidos;
+    private javax.swing.JTextField textFieldBusqAvanProveedores;
     private javax.swing.JTextField textFieldBusqAvanzReparaciones;
     private javax.swing.JTextField textFieldBusquAvanzPiezas;
     private javax.swing.JTextField textFieldCiudadReparacion;
