@@ -708,7 +708,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        pack();
+        java.awt.Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
+        setBounds((screenSize.width-747)/2, (screenSize.height-472)/2, 747, 472);
     }// </editor-fold>//GEN-END:initComponents
 
     private void eliminarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarButtonActionPerformed
@@ -1112,7 +1113,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         }else if(jRadioButtonPiezasNombre.isSelected()&& !textFieldBusquAvanzPiezas.getText().equalsIgnoreCase("")){
 
-            arrayListPiezas = pieza.listarPiezasPorCampo(datoText, code);
+            arrayListPiezas = pieza.listarPiezasPorCampo(datoText, nombre);
 
         }else if (jRadioButtonTodasLasPiezas.isSelected()){
 
