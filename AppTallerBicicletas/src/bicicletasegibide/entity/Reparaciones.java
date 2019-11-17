@@ -30,6 +30,13 @@ public class Reparaciones  implements java.io.Serializable {
     public Reparaciones() {
     }
 
+    public Reparaciones(String codigoreparacion, String nombre, String ciudad) {
+        this.codigoreparacion = codigoreparacion;
+        this.nombre = nombre;
+        this.ciudad = ciudad;
+    }
+
+
 	
     public Reparaciones(String codigoreparacion, String nombre) {
         this.codigoreparacion = codigoreparacion;

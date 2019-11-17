@@ -13,11 +13,13 @@ package vista;
 
 import bicicletasegibide.entity.Piezas;
 import bicicletasegibide.entity.Proveedores;
+import bicicletasegibide.entity.Reparaciones;
 import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import modelo.ModeloTablaPiezas;
 import modelo.ModeloTablaProveedores;
+import modelo.ModeloTablaReparaciones;
 
 /**
  *
@@ -29,22 +31,30 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     public VentanaPrincipal() {
         initComponents();
         
-        
+        // atributos arrayList de control
         ArrayList arrayListPiezas = new ArrayList();
         ArrayList arrayListProveedores = new ArrayList();
+        ArrayList arrayListReparaciones = new ArrayList();
 
+        // objetos de control
         Piezas pieza = new Piezas();
         Proveedores proveedor = new Proveedores();
+        Reparaciones reparacion = new Reparaciones();
 
+        // inicializo los arrayList
         arrayListPiezas = pieza.listarPiezas();
         arrayListProveedores = proveedor.listarProveedores();
+        arrayListReparaciones = reparacion.listarReparaciones();
 
+        // inicializo los tablemodels
         this.modeloTablaPiezas = new ModeloTablaPiezas(arrayListPiezas);
         this.modeloTablaProveedores = new ModeloTablaProveedores(arrayListProveedores);
+        this.modeloTablaReparaciones = new ModeloTablaReparaciones(arrayListReparaciones);
 
+        // inserto los modelos a las tablas
         this.tablaPiezas.setModel(this.modeloTablaPiezas);
         this.tablaProveedores.setModel(this.modeloTablaProveedores);
-
+        this.tablaReparaciones.setModel(this.modeloTablaReparaciones);
 
 
     }
@@ -104,7 +114,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         textFieldCodigoReparacion = new javax.swing.JTextField();
         textFieldNombreReparacion = new javax.swing.JTextField();
-        textFieldApellidos1 = new javax.swing.JTextField();
+        textFieldCiudadReparacion = new javax.swing.JTextField();
         contenedorTablaProveedores1 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         tablaReparaciones = new javax.swing.JTable();
@@ -151,11 +161,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         contenedorPiezasControlLayout.setHorizontalGroup(
             contenedorPiezasControlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(contenedorPiezasControlLayout.createSequentialGroup()
-                .addComponent(nuevaButton, javax.swing.GroupLayout.DEFAULT_SIZE, 82, Short.MAX_VALUE)
+                .addComponent(nuevaButton, javax.swing.GroupLayout.DEFAULT_SIZE, 85, Short.MAX_VALUE)
                 .addGap(28, 28, 28)
-                .addComponent(eliminarButton, javax.swing.GroupLayout.DEFAULT_SIZE, 85, Short.MAX_VALUE)
+                .addComponent(eliminarButton, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE)
                 .addGap(30, 30, 30)
-                .addComponent(actualizarButton, javax.swing.GroupLayout.DEFAULT_SIZE, 82, Short.MAX_VALUE))
+                .addComponent(actualizarButton, javax.swing.GroupLayout.DEFAULT_SIZE, 85, Short.MAX_VALUE))
             .addGroup(contenedorPiezasControlLayout.createSequentialGroup()
                 .addGroup(contenedorPiezasControlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -164,10 +174,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(contenedorPiezasControlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(textFieldPrecio, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 193, Short.MAX_VALUE)
-                    .addComponent(textFieldNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 193, Short.MAX_VALUE)
-                    .addComponent(textFieldCodigoPieza, javax.swing.GroupLayout.DEFAULT_SIZE, 193, Short.MAX_VALUE)
-                    .addComponent(textFieldDescripcion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 193, Short.MAX_VALUE)))
+                    .addComponent(textFieldPrecio, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 202, Short.MAX_VALUE)
+                    .addComponent(textFieldNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 202, Short.MAX_VALUE)
+                    .addComponent(textFieldCodigoPieza, javax.swing.GroupLayout.DEFAULT_SIZE, 202, Short.MAX_VALUE)
+                    .addComponent(textFieldDescripcion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 202, Short.MAX_VALUE)))
         );
         contenedorPiezasControlLayout.setVerticalGroup(
             contenedorPiezasControlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -214,7 +224,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         contenedorPiezasBusquedaAvan.setLayout(contenedorPiezasBusquedaAvanLayout);
         contenedorPiezasBusquedaAvanLayout.setHorizontalGroup(
             contenedorPiezasBusquedaAvanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 315, Short.MAX_VALUE)
+            .addGap(0, 322, Short.MAX_VALUE)
         );
         contenedorPiezasBusquedaAvanLayout.setVerticalGroup(
             contenedorPiezasBusquedaAvanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -229,7 +239,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 .addComponent(contenedorPiezasControl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(contenedorPiezasBusquedaAvan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 652, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 668, Short.MAX_VALUE)
         );
         contenedorPiezasLayout.setVerticalGroup(
             contenedorPiezasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -288,7 +298,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(buttonEliminarProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(buttonActualizarProveedor, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE))
+                        .addComponent(buttonActualizarProveedor, javax.swing.GroupLayout.DEFAULT_SIZE, 108, Short.MAX_VALUE))
                     .addGroup(contenedorGestionProveedoresLayout.createSequentialGroup()
                         .addGroup(contenedorGestionProveedoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -297,10 +307,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                             .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 68, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
                         .addGroup(contenedorGestionProveedoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(textFieldCodigoProveedor, javax.swing.GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE)
-                            .addComponent(textFieldDireccion, javax.swing.GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE)
-                            .addComponent(textFieldApellidos, javax.swing.GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE)
-                            .addComponent(textFieldNombreProveedor, javax.swing.GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE))))
+                            .addComponent(textFieldCodigoProveedor, javax.swing.GroupLayout.DEFAULT_SIZE, 224, Short.MAX_VALUE)
+                            .addComponent(textFieldDireccion, javax.swing.GroupLayout.DEFAULT_SIZE, 224, Short.MAX_VALUE)
+                            .addComponent(textFieldApellidos, javax.swing.GroupLayout.DEFAULT_SIZE, 224, Short.MAX_VALUE)
+                            .addComponent(textFieldNombreProveedor, javax.swing.GroupLayout.DEFAULT_SIZE, 224, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         contenedorGestionProveedoresLayout.setVerticalGroup(
@@ -347,7 +357,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         contenedorTablaProveedores.setLayout(contenedorTablaProveedoresLayout);
         contenedorTablaProveedoresLayout.setHorizontalGroup(
             contenedorTablaProveedoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 646, Short.MAX_VALUE)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 662, Short.MAX_VALUE)
         );
         contenedorTablaProveedoresLayout.setVerticalGroup(
             contenedorTablaProveedoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -360,7 +370,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         contenedorBusquedaAvProveedores.setLayout(contenedorBusquedaAvProveedoresLayout);
         contenedorBusquedaAvProveedoresLayout.setHorizontalGroup(
             contenedorBusquedaAvProveedoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 306, Short.MAX_VALUE)
+            .addGap(0, 314, Short.MAX_VALUE)
         );
         contenedorBusquedaAvProveedoresLayout.setVerticalGroup(
             contenedorBusquedaAvProveedoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -433,7 +443,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(buttonEliminarReparacion, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(buttonActualizarReparacion, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE))
+                        .addComponent(buttonActualizarReparacion, javax.swing.GroupLayout.DEFAULT_SIZE, 98, Short.MAX_VALUE))
                     .addGroup(contenedorGestionReparacionesLayout.createSequentialGroup()
                         .addGroup(contenedorGestionReparacionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -441,9 +451,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                             .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 68, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
                         .addGroup(contenedorGestionReparacionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(textFieldCodigoReparacion, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE)
-                            .addComponent(textFieldApellidos1, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE)
-                            .addComponent(textFieldNombreReparacion, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE))))
+                            .addComponent(textFieldCodigoReparacion, javax.swing.GroupLayout.DEFAULT_SIZE, 214, Short.MAX_VALUE)
+                            .addComponent(textFieldCiudadReparacion, javax.swing.GroupLayout.DEFAULT_SIZE, 214, Short.MAX_VALUE)
+                            .addComponent(textFieldNombreReparacion, javax.swing.GroupLayout.DEFAULT_SIZE, 214, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         contenedorGestionReparacionesLayout.setVerticalGroup(
@@ -459,7 +469,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(contenedorGestionReparacionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
-                    .addComponent(textFieldApellidos1, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(textFieldCiudadReparacion, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(38, 38, 38)
                 .addGroup(contenedorGestionReparacionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buttonNuevaReparacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -486,11 +496,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         contenedorTablaProveedores1.setLayout(contenedorTablaProveedores1Layout);
         contenedorTablaProveedores1Layout.setHorizontalGroup(
             contenedorTablaProveedores1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 626, Short.MAX_VALUE)
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 662, Short.MAX_VALUE)
         );
         contenedorTablaProveedores1Layout.setVerticalGroup(
             contenedorTablaProveedores1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 181, Short.MAX_VALUE)
         );
 
         contenedorBusquedaAvGestiones.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Búsqueda Avanzada"));
@@ -499,11 +509,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         contenedorBusquedaAvGestiones.setLayout(contenedorBusquedaAvGestionesLayout);
         contenedorBusquedaAvGestionesLayout.setHorizontalGroup(
             contenedorBusquedaAvGestionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 296, Short.MAX_VALUE)
+            .addGap(0, 328, Short.MAX_VALUE)
         );
         contenedorBusquedaAvGestionesLayout.setVerticalGroup(
             contenedorBusquedaAvGestionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 127, Short.MAX_VALUE)
+            .addGap(0, 141, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout contenedorReparacionesLayout = new javax.swing.GroupLayout(contenedorReparaciones);
@@ -512,9 +522,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             contenedorReparacionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(contenedorTablaProveedores1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, contenedorReparacionesLayout.createSequentialGroup()
-                .addComponent(contenedorGestionReparaciones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(contenedorBusquedaAvGestiones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(contenedorGestionReparaciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(contenedorBusquedaAvGestiones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         contenedorReparacionesLayout.setVerticalGroup(
             contenedorReparacionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -531,21 +541,15 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 654, Short.MAX_VALUE)
+            .addGap(0, 670, Short.MAX_VALUE)
             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel3Layout.createSequentialGroup()
-                    .addGap(10, 10, 10)
-                    .addComponent(contenedorReparaciones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGap(10, 10, 10)))
+                .addComponent(contenedorReparaciones, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 383, Short.MAX_VALUE)
             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel3Layout.createSequentialGroup()
-                    .addGap(0, 0, 0)
-                    .addComponent(contenedorReparaciones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGap(0, 0, 0)))
+                .addComponent(contenedorReparaciones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Reparaciones", jPanel3);
@@ -554,7 +558,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         contenedorPrincipal.setLayout(contenedorPrincipalLayout);
         contenedorPrincipalLayout.setHorizontalGroup(
             contenedorPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 659, Short.MAX_VALUE)
+            .addComponent(jTabbedPane1)
         );
         contenedorPrincipalLayout.setVerticalGroup(
             contenedorPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -683,7 +687,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private void buttonNuevoProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonNuevoProveedorActionPerformed
         // TODO add your handling code here:
 
-
         String code = textFieldCodigoProveedor.getText();
         String name = textFieldNombreProveedor.getText();
         String a = textFieldApellidos.getText();
@@ -700,14 +703,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             nuevoProveedor.insertarProveedor(nuevoProveedor)){
             
             JOptionPane.showMessageDialog(null, "PROVEEDOR GUARDADO EN BD CORRECTAMENTE");
-            
-           
+             
             // inserto en la jtable
            this.modeloTablaProveedores.adicionarProveedor(nuevoProveedor);
-            
-            
+                      
         }
-
 
         // limpio los textfields
             limpiarTextFieldsProveedores();
@@ -768,8 +768,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             this.tablaProveedores.getModel().setValueAt(apell, rowSeleccionada, 2);
             this.tablaProveedores.getModel().setValueAt(direc, rowSeleccionada, 3);
 
-
-
             Proveedores p = new Proveedores(cod,name,apell,direc);
 
             //actualizo el prov en la bd
@@ -783,14 +781,99 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     private void buttonNuevaReparacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonNuevaReparacionActionPerformed
         // TODO add your handling code here:
+        
+        String code = textFieldCodigoReparacion.getText();
+        String name = textFieldNombreReparacion.getText();
+        String city = textFieldCiudadReparacion.getText();
+
+
+        Reparaciones nuevaReparacion = new Reparaciones(code, name, city);
+
+        if (code.equalsIgnoreCase("") || name.equals("")
+                || city.equals("")) {
+
+            JOptionPane.showMessageDialog(null, "Introduzca todos los campos");
+
+        } else if (// inserto la nueva rep en la bd
+                nuevaReparacion.insertarReparacion(nuevaReparacion)) {
+
+            JOptionPane.showMessageDialog(null, "REPARACIÓN GUARDADA EN BD CORRECTAMENTE");
+
+            // inserto en la jtable
+            this.modeloTablaReparaciones.adicionarReparacion(nuevaReparacion);
+
+        }
+
+        // limpio los textfields
+        limpiarTextFieldsReparaciones();
+
+
+
     }//GEN-LAST:event_buttonNuevaReparacionActionPerformed
 
     private void buttonEliminarReparacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEliminarReparacionActionPerformed
         // TODO add your handling code here:
+        
+        //obtengo la fila seleccionada
+        int rowSeleccionada = this.tablaReparaciones.getSelectedRow();
+
+        // compruebo que el usuario haya elegido alguna fila
+        if (rowSeleccionada == -1) {
+
+            JOptionPane.showMessageDialog(null, "SELECCIONE UNA FILA");
+
+        } else {
+
+            // obtengo los datos de la fila
+            String cod = this.tablaReparaciones.getModel().getValueAt(rowSeleccionada, 0).toString();
+            String n = this.tablaReparaciones.getModel().getValueAt(rowSeleccionada, 1).toString();
+            String ap = this.tablaReparaciones.getModel().getValueAt(rowSeleccionada, 2).toString();
+           
+
+            // elimino del modelo la row
+            this.modeloTablaReparaciones.eliminarReparacion(rowSeleccionada);
+
+            // creo el objeto
+            Reparaciones rep = new Reparaciones(cod, n, ap);
+
+            // borro de la bd el proveedor
+            rep.borrarReparacion(rep);
+        }
+
     }//GEN-LAST:event_buttonEliminarReparacionActionPerformed
 
     private void buttonActualizarReparacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonActualizarReparacionActionPerformed
         // TODO add your handling code here:
+        
+        //obtengo la fila seleccionada
+        int rowSeleccionada = this.tablaReparaciones.getSelectedRow();
+
+        // compruebo que una celda esté seleccionada
+        if(rowSeleccionada>=0){
+
+            //obtengo los valores de la fila que se está editando
+            String cod = this.tablaReparaciones.getValueAt(rowSeleccionada, 0).toString();
+            String name = this.tablaReparaciones.getValueAt(rowSeleccionada, 1).toString();
+            String apell = this.tablaReparaciones.getValueAt(rowSeleccionada, 2).toString();
+           
+
+            // actualizo la lista de proveedores del table model y por lo tanto la fila en el Jtable
+            this.tablaProveedores.getModel().setValueAt(cod, rowSeleccionada, 0);
+            this.tablaProveedores.getModel().setValueAt(name, rowSeleccionada, 1);
+            this.tablaProveedores.getModel().setValueAt(apell, rowSeleccionada, 2);
+            
+
+            Reparaciones p = new Reparaciones(cod,name,apell);
+
+            //actualizo la rep en la bd
+            p.modificarReparacion(p);
+
+        }else{
+
+            JOptionPane.showMessageDialog(null, "SELECCIONE UNA FILA ");
+        }
+
+
     }//GEN-LAST:event_buttonActualizarReparacionActionPerformed
 
     /**
@@ -847,7 +930,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JTable tablaProveedores;
     private javax.swing.JTable tablaReparaciones;
     private javax.swing.JTextField textFieldApellidos;
-    private javax.swing.JTextField textFieldApellidos1;
+    private javax.swing.JTextField textFieldCiudadReparacion;
     private javax.swing.JTextField textFieldCodigoPieza;
     private javax.swing.JTextField textFieldCodigoProveedor;
     private javax.swing.JTextField textFieldCodigoReparacion;
@@ -859,10 +942,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JTextField textFieldPrecio;
     // End of variables declaration//GEN-END:variables
 
-     private ModeloTablaPiezas modeloTablaPiezas;
-     private ModeloTablaProveedores modeloTablaProveedores;
+    // Table models
+    private ModeloTablaPiezas modeloTablaPiezas;
+    private ModeloTablaProveedores modeloTablaProveedores;
+    private ModeloTablaReparaciones modeloTablaReparaciones;
 
-  
      // metod to clean textFields
     public void limpiarTextfieldsPiezas(){
 
@@ -880,6 +964,13 @@ public class VentanaPrincipal extends javax.swing.JFrame {
          textFieldNombreProveedor.setText("");
          textFieldApellidos.setText("");
          textFieldDireccion.setText("");
+    }
+
+    // metod to clean reparaciones TextFields
+    public void limpiarTextFieldsReparaciones(){
+        textFieldCodigoReparacion.setText("");
+        textFieldNombreReparacion.setText("");
+        textFieldCiudadReparacion.setText("");
     }
     
 }

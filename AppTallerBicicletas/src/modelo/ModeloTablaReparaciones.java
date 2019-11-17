@@ -61,7 +61,7 @@ public class ModeloTablaReparaciones extends AbstractTableModel{
 
     }
 
-    public void eliminarPieza(int rowIndex){
+    public void eliminarReparacion(int rowIndex){
         listaReparaciones.remove(rowIndex);
         fireTableDataChanged();
 
@@ -84,7 +84,6 @@ public class ModeloTablaReparaciones extends AbstractTableModel{
 
         return true;
     }
-
 
     @Override
     public void setValueAt(Object value, int rowIndex, int columnIndex ){
