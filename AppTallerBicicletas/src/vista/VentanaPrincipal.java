@@ -86,6 +86,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaPiezas = new javax.swing.JTable();
         contenedorPiezasBusquedaAvan = new javax.swing.JPanel();
+        jRadioButton1 = new javax.swing.JRadioButton();
+        jRadioButton2 = new javax.swing.JRadioButton();
+        jRadioButton3 = new javax.swing.JRadioButton();
+        textFieldBusquAvanzPiezas = new javax.swing.JTextField();
+        buttonBusqAvanzPiezas = new javax.swing.JButton();
         contenedorProveedores = new javax.swing.JPanel();
         contenedorGestionProveedores = new javax.swing.JPanel();
         buttonNuevoProveedor = new javax.swing.JButton();
@@ -167,11 +172,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         contenedorPiezasControlLayout.setHorizontalGroup(
             contenedorPiezasControlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(contenedorPiezasControlLayout.createSequentialGroup()
-                .addComponent(nuevaButton, javax.swing.GroupLayout.DEFAULT_SIZE, 95, Short.MAX_VALUE)
+                .addComponent(nuevaButton, javax.swing.GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE)
                 .addGap(28, 28, 28)
-                .addComponent(eliminarButton, javax.swing.GroupLayout.DEFAULT_SIZE, 96, Short.MAX_VALUE)
+                .addComponent(eliminarButton, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE)
                 .addGap(30, 30, 30)
-                .addComponent(actualizarButton, javax.swing.GroupLayout.DEFAULT_SIZE, 95, Short.MAX_VALUE))
+                .addComponent(actualizarButton, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE))
             .addGroup(contenedorPiezasControlLayout.createSequentialGroup()
                 .addGroup(contenedorPiezasControlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -180,10 +185,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(contenedorPiezasControlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(textFieldPrecio, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
-                    .addComponent(textFieldNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
-                    .addComponent(textFieldCodigoPieza, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
-                    .addComponent(textFieldDescripcion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)))
+                    .addComponent(textFieldPrecio, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 244, Short.MAX_VALUE)
+                    .addComponent(textFieldNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 244, Short.MAX_VALUE)
+                    .addComponent(textFieldCodigoPieza, javax.swing.GroupLayout.DEFAULT_SIZE, 244, Short.MAX_VALUE)
+                    .addComponent(textFieldDescripcion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 244, Short.MAX_VALUE)))
         );
         contenedorPiezasControlLayout.setVerticalGroup(
             contenedorPiezasControlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -226,15 +231,44 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         contenedorPiezasBusquedaAvan.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Búsqueda Avanzada"));
 
+        jRadioButton1.setText("Por código");
+
+        jRadioButton2.setText("Por nombre");
+
+        jRadioButton3.setText("Listar piezas");
+
+        buttonBusqAvanzPiezas.setText("Buscar");
+
         javax.swing.GroupLayout contenedorPiezasBusquedaAvanLayout = new javax.swing.GroupLayout(contenedorPiezasBusquedaAvan);
         contenedorPiezasBusquedaAvan.setLayout(contenedorPiezasBusquedaAvanLayout);
         contenedorPiezasBusquedaAvanLayout.setHorizontalGroup(
             contenedorPiezasBusquedaAvanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 350, Short.MAX_VALUE)
+            .addGroup(contenedorPiezasBusquedaAvanLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(contenedorPiezasBusquedaAvanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(contenedorPiezasBusquedaAvanLayout.createSequentialGroup()
+                        .addComponent(textFieldBusquAvanzPiezas, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                        .addComponent(buttonBusqAvanzPiezas, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jRadioButton1)
+                    .addComponent(jRadioButton2)
+                    .addComponent(jRadioButton3))
+                .addContainerGap())
         );
         contenedorPiezasBusquedaAvanLayout.setVerticalGroup(
             contenedorPiezasBusquedaAvanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 132, Short.MAX_VALUE)
+            .addGroup(contenedorPiezasBusquedaAvanLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jRadioButton1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jRadioButton2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jRadioButton3)
+                .addGap(18, 18, 18)
+                .addGroup(contenedorPiezasBusquedaAvanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(textFieldBusquAvanzPiezas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonBusqAvanzPiezas))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout contenedorPiezasLayout = new javax.swing.GroupLayout(contenedorPiezas);
@@ -250,7 +284,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         contenedorPiezasLayout.setVerticalGroup(
             contenedorPiezasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, contenedorPiezasLayout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 214, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 212, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(contenedorPiezasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(contenedorPiezasBusquedaAvan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -604,7 +638,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         contenedorPrincipal.setLayout(contenedorPrincipalLayout);
         contenedorPrincipalLayout.setHorizontalGroup(
             contenedorPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1)
+            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 731, Short.MAX_VALUE)
         );
         contenedorPrincipalLayout.setVerticalGroup(
             contenedorPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -984,6 +1018,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton actualizarButton;
     private javax.swing.JButton buttonActualizarProveedor;
     private javax.swing.JButton buttonActualizarReparacion;
+    private javax.swing.JButton buttonBusqAvanzPiezas;
     private javax.swing.JButton buttonEliminarProveedor;
     private javax.swing.JButton buttonEliminarReparacion;
     private javax.swing.JButton buttonNuevaReparacion;
@@ -1014,6 +1049,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JRadioButton jRadioButton1;
+    private javax.swing.JRadioButton jRadioButton2;
+    private javax.swing.JRadioButton jRadioButton3;
     private javax.swing.JRadioButton jRadioButtonCiudadReparacion;
     private javax.swing.JRadioButton jRadioButtonCodigoReparacion;
     private javax.swing.JRadioButton jRadioButtonListarReparaciones;
@@ -1028,6 +1066,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JTable tablaReparaciones;
     private javax.swing.JTextField textFieldApellidos;
     private javax.swing.JTextField textFieldBusqAvanzReparaciones;
+    private javax.swing.JTextField textFieldBusquAvanzPiezas;
     private javax.swing.JTextField textFieldCiudadReparacion;
     private javax.swing.JTextField textFieldCodigoPieza;
     private javax.swing.JTextField textFieldCodigoProveedor;
