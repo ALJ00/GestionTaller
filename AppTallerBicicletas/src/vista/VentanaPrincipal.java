@@ -1057,21 +1057,21 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         if(jRadioButtonCiudadReparacion.isSelected() && !textFieldBusqAvanzReparaciones.getText().equalsIgnoreCase("")){
 
-            JOptionPane.showMessageDialog(null, ciudad);
+           
             arrayListReparaciones = reparacion.listarReparacionesPorCampo(datoText, ciudad);
 
         }else if(jRadioButtonCodigoReparacion.isSelected()&& !textFieldBusqAvanzReparaciones.getText().equalsIgnoreCase("")){
 
-            JOptionPane.showMessageDialog(null, code);
+           
             arrayListReparaciones = reparacion.listarReparacionesPorCampo(datoText, code);
 
         }else if (jRadioButtonListarReparaciones.isSelected()&& !textFieldBusqAvanzReparaciones.getText().equalsIgnoreCase("")){
-            JOptionPane.showMessageDialog(null, "muestro todas");
+           
 
             arrayListReparaciones = reparacion.listarReparaciones();
 
         }else if (jRadioButtonNombreReparacion.isSelected()&& !textFieldBusqAvanzReparaciones.getText().equalsIgnoreCase("")){
-            JOptionPane.showMessageDialog(null, nombre);
+            
             arrayListReparaciones = reparacion.listarReparacionesPorCampo(datoText, nombre);
 
            
@@ -1102,7 +1102,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         Proveedores proveedor = new Proveedores();
 
 
-        JOptionPane.showMessageDialog(null, datoText);
+        
 
         if(jRadioButtonCodigoProveedores.isSelected() && !textFieldBusqAvanProveedores.getText().equalsIgnoreCase("")){
 
