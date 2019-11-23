@@ -98,6 +98,9 @@ public class ModeloTablaGestiones extends AbstractTableModel {
 
         Gestiones g = listaGestiones.get(rowIndex);
 
+        Gestiones gest = new Gestiones();
+        gest = (Gestiones)value;
+
         Piezas p = new Piezas();
         p = (Piezas)value;
 
@@ -110,7 +113,7 @@ public class ModeloTablaGestiones extends AbstractTableModel {
         switch(columnIndex){
 
             case 0:
-                g.setCantidad(null);
+                g.setCantidad(gest.getCantidad());
                 break;
             case 1:
                 g.setPiezas(p);

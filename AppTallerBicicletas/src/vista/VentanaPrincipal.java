@@ -1417,10 +1417,129 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     private void buttonNuevaGestionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonNuevaGestionActionPerformed
         // TODO add your handling code here:
+
+        //obtengo la filas seleccionada
+        int rowPieza = this.jTablePiezasGestiones.getSelectedRow();
+        int rowProveedor = this.jTableProveedoresGestiones.getSelectedRow();
+        int rowReparacion = this.jTableReparacionesGestiones.getSelectedRow();
+
+        Piezas pieza;
+        Proveedores proveedor;
+        Reparaciones reparacion;
+
+
+        if(rowPieza>=0 && rowProveedor>=0 && rowReparacion >=0 ){
+
+            pieza = new Piezas();
+            proveedor = new Proveedores();
+            reparacion = new Reparaciones();
+
+            for (int i = 0; i < 4; i++) {
+
+                if(i==0){
+                    pieza.setCodigopieza(this.jTablePiezasGestiones.getValueAt(rowPieza, i).toString());
+                    proveedor.setCodigoproveedor(this.jTableProveedoresGestiones.getValueAt(rowProveedor, i).toString());
+                    reparacion.setCodigoreparacion(this.jTableReparacionesGestiones.getValueAt(rowReparacion, i).toString());
+
+                }else if(i==1){
+
+                    pieza.setNombre(this.jTablePiezasGestiones.getValueAt(rowPieza, i).toString());
+                    proveedor.setNombre(this.jTableProveedoresGestiones.getValueAt(rowProveedor, i).toString());
+                    reparacion.setNombre(this.jTableReparacionesGestiones.getValueAt(rowReparacion, i).toString());
+
+                }else if(i==2){
+                    pieza.setPrecio(Float.valueOf(this.jTablePiezasGestiones.getValueAt(rowPieza, i).toString()));
+                    proveedor.setApellidos(this.jTableProveedoresGestiones.getValueAt(rowProveedor, i).toString());
+                    reparacion.setCiudad(this.jTableReparacionesGestiones.getValueAt(rowReparacion, i).toString());
+
+                }else{
+                    pieza.setDescripcion(this.jTablePiezasGestiones.getValueAt(rowPieza, i).toString());
+                    proveedor.setDireccion(this.jTableProveedoresGestiones.getValueAt(rowProveedor, i).toString());
+                   
+                }
+
+            }
+
+
+            GestionesId cod = new GestionesId(pieza.getCodigopieza(),
+                    proveedor.getCodigoproveedor(), reparacion.getCodigoreparacion());
+            Gestiones gest = new Gestiones();
+
+            // asigno los objetos pieza, proveedor y rep a la nueva gestion
+            gest.setId(cod);
+            gest.setPiezas(pieza);
+            gest.setProveedores(proveedor);
+            gest.setReparaciones(reparacion);
+            gest.setCantidad(1.0f);
+
+            // inserto en la tabla una nueva reparacion
+            this.modeloTablaGestiones.adicionarReparacion(gest);
+
+            // inserto en la bd nueva gestion
+            gest.nuevaGestion(gest);
+
+
+
+        }else{
+             JOptionPane.showMessageDialog(null, "SELECCIONE UNA PIEZA, UN PROVEEDOR Y UNA REPACIÓN ");
+        }
+
+
     }//GEN-LAST:event_buttonNuevaGestionActionPerformed
 
     private void buttonEliminarGestionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEliminarGestionActionPerformed
         // TODO add your handling code here:
+        
+        
+        //obtengo la filas seleccionada
+        int rowGestion = this.jTableGestionesGestiones.getSelectedRow();
+        
+        
+
+
+        if(rowGestion>=0  ){
+
+            Piezas pieza = new Piezas();
+            Proveedores proveedor = new Proveedores();
+            Reparaciones reparacion = new Reparaciones();
+
+            String cod = this.jTableGestionesGestiones.getValueAt(rowGestion, 0).toString();
+            String codP = this.jTableGestionesGestiones.getValueAt(rowGestion, 1).toString();
+            String codPro = this.jTableGestionesGestiones.getValueAt(rowGestion, 2).toString();
+            String codRep = this.jTableGestionesGestiones.getValueAt(rowGestion, 3).toString();
+
+            pieza.setCodigopieza(codP);
+            proveedor.setCodigoproveedor(codPro);
+            reparacion.setCodigoreparacion(codRep);
+
+
+            GestionesId gestionId = new GestionesId(codP,codPro,codRep);
+                    
+            Gestiones gest = new Gestiones();
+
+            // asigno los objetos pieza, proveedor y rep a la nueva gestion
+            gest.setId(gestionId);
+            gest.setPiezas(pieza);
+            gest.setProveedores(proveedor);
+            gest.setReparaciones(reparacion);
+            gest.setCantidad(1.0f);
+
+            // inserto en la tabla una nueva reparacion
+            this.modeloTablaGestiones.eliminarGestion(rowGestion);
+
+            // inserto en la bd nueva gestion
+            gest.borrarGestion(gest);
+
+
+
+        }else{
+             JOptionPane.showMessageDialog(null, "SELECCIONE UNA PIEZA, UN PROVEEDOR Y UNA REPACIÓN ");
+        }
+
+
+
+
+
     }//GEN-LAST:event_buttonEliminarGestionActionPerformed
 
     private void buttonActualizarGestionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonActualizarGestionActionPerformed
@@ -1563,6 +1682,13 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         textFieldCodigoReparacion.setText("");
         textFieldNombreReparacion.setText("");
         textFieldCiudadReparacion.setText("");
+    }
+
+    public void limpiarTextFieldsGestiones(){
+        this.jTextFieldCodCantGestion.setText("");
+        this.textFieldCodigoPiezaGestion.setText("");
+        this.textFieldCodProvGestion.setText("");
+        this.textFieldCodRepGestion.setText("");
     }
     
 }

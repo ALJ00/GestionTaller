@@ -5,9 +5,13 @@ import bicicletasegibide.util.NewHibernateUtil;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import javax.swing.JOptionPane;
+import org.hibernate.ObjectNotFoundException;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.exception.ConstraintViolationException;
 
 
 
@@ -41,6 +45,15 @@ public class Gestiones  implements java.io.Serializable {
        this.proveedores = proveedores;
        this.cantidad = cantidad;
     }
+
+    public Gestiones(Reparaciones reparaciones, Piezas piezas, Proveedores proveedores, Float cantidad) {
+        this.reparaciones = reparaciones;
+        this.piezas = piezas;
+        this.proveedores = proveedores;
+        this.cantidad = cantidad;
+    }
+
+
    
     public GestionesId getId() {
         return this.id;
@@ -78,6 +91,7 @@ public class Gestiones  implements java.io.Serializable {
         this.cantidad = cantidad;
     }
 
+    // consultas
     public ArrayList<Gestiones> listarGestiones(){
 
         SessionFactory sesion = NewHibernateUtil.getSessionFactory();
@@ -107,9 +121,103 @@ public class Gestiones  implements java.io.Serializable {
         return arrayListGestiones;
     }
 
+    public void nuevaGestion(Gestiones gest){
+
+        SessionFactory sesion = NewHibernateUtil.getSessionFactory();
+        Session session = sesion.openSession();
+        Transaction tx = session.beginTransaction();
+
+       
+
+
+        try{
+            session.save(gest);
+            try{
+                tx.commit();
+                JOptionPane.showMessageDialog(null, "GESTIÓN CREADA CORRECTAMENTE ");
 
 
 
+            }catch(ConstraintViolationException e){
+
+                JOptionPane.showMessageDialog(null, "ERROR " + e.getMessage());
+                System.out.println("EMPLEADO DUPLICADO");
+                System.out.printf("MENSAJE:%s%n", e.getMessage());
+                System.out.printf("COD ERROR:%d%n", e.getErrorCode());
+                System.out.printf("ERROR SQL:%s%n", e.getSQLException().getMessage());
+            }
+
+
+
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "ERROR "+e.getMessage());
+
+        }
+        session.close();
+
+
+    
+    }
+
+    public void borrarGestion(Gestiones gest){
+
+        SessionFactory sesion = NewHibernateUtil.getSessionFactory();
+        Session session = sesion.openSession();
+        Transaction tx = session.beginTransaction();
+
+        ArrayList arrayListGestiones = new ArrayList();
+
+        // query
+        Query q = session.createQuery("from Gestiones where piezas_codigopieza = ? and proveedores_codigoproveedor = ? and reparaciones_codigoreparacion = ?");
+
+        q.setParameter(0, (String) gest.getPiezas().getCodigopieza());
+        q.setParameter(1, (String) gest.getProveedores().getCodigoproveedor());
+        q.setParameter(2, (String) gest.getReparaciones().getCodigoreparacion());
+
+        List <Gestiones> lista = q.list();
+       
+
+        // Obtengo un Iterador y recorro la lista
+        Iterator <Gestiones> iter = lista.iterator();
+
+       
+
+        while(iter.hasNext()){
+
+            //extraer el objeto
+            Gestiones gestion = (Gestiones) iter.next();
+            arrayListGestiones.add(gestion);
+
+        }
+
+        Gestiones de = new Gestiones();
+
+        de = (Gestiones) arrayListGestiones.get(0);
+
+        try{
+            session.delete(de);
+            tx.commit();
+            JOptionPane.showMessageDialog(null, "GESTIÓN BORRADA CORRECTAMENTE");
+        } catch (ObjectNotFoundException o){
+
+            System.out.println ("NO EXISTE LA GESTIÓN");
+            JOptionPane.showMessageDialog(null, "NO EXISTE LA GESTIÓN");
+
+        } catch (ConstraintViolationException c){
+
+            System.out.println ("NO SE PUEDE ELIMINAR");
+            JOptionPane.showMessageDialog(null, "NO SE PUEDE ELIMINAR");
+
+        } catch (Exception e){
+
+            System.out.println ("ERROR NO CONTROLADO");
+            JOptionPane.showMessageDialog(null, "ERROR NO CONTROLADO");
+
+            e.printStackTrace();
+        }
+
+        session.close();
+    }
 }
 
 
