@@ -136,10 +136,32 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jRadioButtonListarReparaciones = new javax.swing.JRadioButton();
         jButtonBusqAvanzreparaciones = new javax.swing.JButton();
         textFieldBusqAvanzReparaciones = new javax.swing.JTextField();
+        contenedorGestiones = new javax.swing.JPanel();
+        contenedorTablasPiezProveeRepEnGestiones = new javax.swing.JPanel();
+        jScrollPanePiezasGestiones = new javax.swing.JScrollPane();
+        jTablePiezasGestiones = new javax.swing.JTable();
+        jScrollPaneProveedoresGestiones = new javax.swing.JScrollPane();
+        jTableProveedoresGestiones = new javax.swing.JTable();
+        jScrollPaneReparacionesGestiones = new javax.swing.JScrollPane();
+        jTableReparacionesGestiones = new javax.swing.JTable();
+        jScrollPaneGestionesGestiones = new javax.swing.JScrollPane();
+        jTableGestionesGestiones = new javax.swing.JTable();
+        conetendorAdminGestiones = new javax.swing.JPanel();
+        textFieldCodigoPiezaGestion = new javax.swing.JTextField();
+        textFieldCodProvGestion = new javax.swing.JTextField();
+        textFieldCodRepGestion = new javax.swing.JTextField();
+        jLabelCodPiezGestion = new javax.swing.JLabel();
+        jLabelCodProvGestion = new javax.swing.JLabel();
+        jLabelCodRepGestion = new javax.swing.JLabel();
+        buttonNuevaGestion = new javax.swing.JButton();
+        buttonEliminarGestion = new javax.swing.JButton();
+        buttonActualizarGestion = new javax.swing.JButton();
+        jTextFieldCodCantGestion = new javax.swing.JTextField();
+        jLabelCodCantGestion = new javax.swing.JLabel();
+        contenedorAdmAvanzGestiones = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("App Gestión Taller Bicicletas");
-        setResizable(false);
 
         contenedorPiezas.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
@@ -182,7 +204,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 .addComponent(nuevaButton, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28)
                 .addComponent(eliminarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
                 .addComponent(actualizarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(contenedorPiezasControlLayout.createSequentialGroup()
                 .addGroup(contenedorPiezasControlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -273,7 +295,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 .addGroup(contenedorPiezasBusquedaAvanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(contenedorPiezasBusquedaAvanLayout.createSequentialGroup()
                         .addComponent(textFieldBusquAvanzPiezas, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
                         .addComponent(buttonBusqAvanzPiezas, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jRadioButtonPiezasCodigo)
                     .addComponent(jRadioButtonPiezasNombre)
@@ -293,7 +315,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 .addGroup(contenedorPiezasBusquedaAvanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(textFieldBusquAvanzPiezas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(buttonBusqAvanzPiezas))
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout contenedorPiezasLayout = new javax.swing.GroupLayout(contenedorPiezas);
@@ -301,22 +323,22 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         contenedorPiezasLayout.setHorizontalGroup(
             contenedorPiezasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(contenedorPiezasLayout.createSequentialGroup()
-                .addGroup(contenedorPiezasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(contenedorPiezasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(contenedorPiezasLayout.createSequentialGroup()
-                        .addComponent(contenedorPiezasControl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(contenedorPiezasControl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(contenedorPiezasBusquedaAvan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 724, Short.MAX_VALUE))
-                .addContainerGap())
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 698, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(80, Short.MAX_VALUE))
         );
         contenedorPiezasLayout.setVerticalGroup(
             contenedorPiezasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, contenedorPiezasLayout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 211, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 207, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(contenedorPiezasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(contenedorPiezasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(contenedorPiezasBusquedaAvan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(contenedorPiezasControl, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(contenedorPiezasControl, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE)))
         );
 
         jTabbedPane1.addTab("Piezas", contenedorPiezas);
@@ -434,9 +456,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         contenedorTablaProveedores.setLayout(contenedorTablaProveedoresLayout);
         contenedorTablaProveedoresLayout.setHorizontalGroup(
             contenedorTablaProveedoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(contenedorTablaProveedoresLayout.createSequentialGroup()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 721, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 763, Short.MAX_VALUE)
         );
         contenedorTablaProveedoresLayout.setVerticalGroup(
             contenedorTablaProveedoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -472,10 +492,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                     .addComponent(jRadioButtonDireccionProveedores)
                     .addComponent(jRadioButtonListarProveedores)
                     .addGroup(contenedorBusquedaAvProveedoresLayout.createSequentialGroup()
-                        .addComponent(textFieldBusqAvanProveedores, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(buttonBusqAvanzProveedores, javax.swing.GroupLayout.DEFAULT_SIZE, 105, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addComponent(textFieldBusqAvanProveedores, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(buttonBusqAvanzProveedores, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(131, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         contenedorBusquedaAvProveedoresLayout.setVerticalGroup(
             contenedorBusquedaAvProveedoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -505,7 +525,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(contenedorBusquedaAvProveedores, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(contenedorTablaProveedores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                .addGap(213, 213, 213))
         );
         contenedorProveedoresLayout.setVerticalGroup(
             contenedorProveedoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -556,25 +576,25 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         contenedorGestionReparacionesLayout.setHorizontalGroup(
             contenedorGestionReparacionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(contenedorGestionReparacionesLayout.createSequentialGroup()
-                .addGroup(contenedorGestionReparacionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(contenedorGestionReparacionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(contenedorGestionReparacionesLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(buttonNuevaReparacion, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(buttonEliminarReparacion, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(buttonActualizarReparacion, javax.swing.GroupLayout.DEFAULT_SIZE, 98, Short.MAX_VALUE))
+                        .addComponent(buttonEliminarReparacion, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(buttonActualizarReparacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(contenedorGestionReparacionesLayout.createSequentialGroup()
                         .addGroup(contenedorGestionReparacionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 68, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
-                        .addGroup(contenedorGestionReparacionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(textFieldNombreReparacion, javax.swing.GroupLayout.DEFAULT_SIZE, 214, Short.MAX_VALUE)
-                            .addComponent(textFieldCiudadReparacion, javax.swing.GroupLayout.DEFAULT_SIZE, 214, Short.MAX_VALUE)
-                            .addComponent(textFieldCodigoReparacion, javax.swing.GroupLayout.DEFAULT_SIZE, 214, Short.MAX_VALUE))))
-                .addContainerGap())
+                        .addGroup(contenedorGestionReparacionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(textFieldCodigoReparacion)
+                            .addComponent(textFieldNombreReparacion)
+                            .addComponent(textFieldCiudadReparacion, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         contenedorGestionReparacionesLayout.setVerticalGroup(
             contenedorGestionReparacionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -594,7 +614,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 .addGroup(contenedorGestionReparacionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buttonNuevaReparacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(buttonEliminarReparacion)
-                    .addComponent(buttonActualizarReparacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(buttonActualizarReparacion)))
         );
 
         contenedorTablaProveedores1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -616,11 +636,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         contenedorTablaProveedores1.setLayout(contenedorTablaProveedores1Layout);
         contenedorTablaProveedores1Layout.setHorizontalGroup(
             contenedorTablaProveedores1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 728, Short.MAX_VALUE)
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 712, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         contenedorTablaProveedores1Layout.setVerticalGroup(
             contenedorTablaProveedores1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE)
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 172, Short.MAX_VALUE)
         );
 
         contenedorBusquedaAvGestiones.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Búsqueda Avanzada"));
@@ -647,16 +667,16 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             .addGroup(contenedorBusquedaAvGestionesLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(contenedorBusquedaAvGestionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jRadioButtonCodigoReparacion, javax.swing.GroupLayout.DEFAULT_SIZE, 374, Short.MAX_VALUE)
-                    .addComponent(jRadioButtonNombreReparacion, javax.swing.GroupLayout.DEFAULT_SIZE, 374, Short.MAX_VALUE)
-                    .addComponent(jRadioButtonCiudadReparacion, javax.swing.GroupLayout.DEFAULT_SIZE, 374, Short.MAX_VALUE)
+                    .addComponent(jRadioButtonListarReparaciones)
                     .addGroup(contenedorBusquedaAvGestionesLayout.createSequentialGroup()
-                        .addComponent(jRadioButtonListarReparaciones)
-                        .addContainerGap(257, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, contenedorBusquedaAvGestionesLayout.createSequentialGroup()
-                        .addComponent(textFieldBusqAvanzReparaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButtonBusqAvanzreparaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(textFieldBusqAvanzReparaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                        .addComponent(jButtonBusqAvanzreparaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(contenedorBusquedaAvGestionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(jRadioButtonNombreReparacion, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jRadioButtonCiudadReparacion, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 354, Short.MAX_VALUE))
+                    .addComponent(jRadioButtonCodigoReparacion, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
         contenedorBusquedaAvGestionesLayout.setVerticalGroup(
             contenedorBusquedaAvGestionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -673,18 +693,21 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 .addGroup(contenedorBusquedaAvGestionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonBusqAvanzreparaciones)
                     .addComponent(textFieldBusqAvanzReparaciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout contenedorReparacionesLayout = new javax.swing.GroupLayout(contenedorReparaciones);
         contenedorReparaciones.setLayout(contenedorReparacionesLayout);
         contenedorReparacionesLayout.setHorizontalGroup(
             contenedorReparacionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(contenedorTablaProveedores1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, contenedorReparacionesLayout.createSequentialGroup()
-                .addComponent(contenedorGestionReparaciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
-                .addComponent(contenedorBusquedaAvGestiones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(contenedorReparacionesLayout.createSequentialGroup()
+                .addGroup(contenedorReparacionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(contenedorReparacionesLayout.createSequentialGroup()
+                        .addComponent(contenedorGestionReparaciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(contenedorBusquedaAvGestiones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(contenedorTablaProveedores1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(60, Short.MAX_VALUE))
         );
         contenedorReparacionesLayout.setVerticalGroup(
             contenedorReparacionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -692,8 +715,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 .addComponent(contenedorTablaProveedores1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addGroup(contenedorReparacionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(contenedorGestionReparaciones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(contenedorBusquedaAvGestiones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(contenedorBusquedaAvGestiones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(contenedorGestionReparaciones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -701,7 +724,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 736, Short.MAX_VALUE)
+            .addGap(0, 780, Short.MAX_VALUE)
             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(contenedorReparaciones, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -714,14 +737,225 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Reparaciones", jPanel3);
 
+        jScrollPanePiezasGestiones.setBorder(javax.swing.BorderFactory.createTitledBorder("Piezas"));
+
+        jTablePiezasGestiones.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPanePiezasGestiones.setViewportView(jTablePiezasGestiones);
+
+        jScrollPaneProveedoresGestiones.setBorder(javax.swing.BorderFactory.createTitledBorder("Proveedores"));
+
+        jTableProveedoresGestiones.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPaneProveedoresGestiones.setViewportView(jTableProveedoresGestiones);
+
+        jScrollPaneReparacionesGestiones.setBorder(javax.swing.BorderFactory.createTitledBorder("Reparaciones"));
+
+        jTableReparacionesGestiones.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3"
+            }
+        ));
+        jScrollPaneReparacionesGestiones.setViewportView(jTableReparacionesGestiones);
+
+        javax.swing.GroupLayout contenedorTablasPiezProveeRepEnGestionesLayout = new javax.swing.GroupLayout(contenedorTablasPiezProveeRepEnGestiones);
+        contenedorTablasPiezProveeRepEnGestiones.setLayout(contenedorTablasPiezProveeRepEnGestionesLayout);
+        contenedorTablasPiezProveeRepEnGestionesLayout.setHorizontalGroup(
+            contenedorTablasPiezProveeRepEnGestionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(contenedorTablasPiezProveeRepEnGestionesLayout.createSequentialGroup()
+                .addGap(236, 236, 236)
+                .addComponent(jScrollPaneProveedoresGestiones, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPaneReparacionesGestiones, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(19, Short.MAX_VALUE))
+            .addGroup(contenedorTablasPiezProveeRepEnGestionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(contenedorTablasPiezProveeRepEnGestionesLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(jScrollPanePiezasGestiones, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(555, Short.MAX_VALUE)))
+        );
+        contenedorTablasPiezProveeRepEnGestionesLayout.setVerticalGroup(
+            contenedorTablasPiezProveeRepEnGestionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(contenedorTablasPiezProveeRepEnGestionesLayout.createSequentialGroup()
+                .addGroup(contenedorTablasPiezProveeRepEnGestionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPaneProveedoresGestiones, javax.swing.GroupLayout.DEFAULT_SIZE, 161, Short.MAX_VALUE)
+                    .addComponent(jScrollPaneReparacionesGestiones, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
+            .addGroup(contenedorTablasPiezProveeRepEnGestionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(contenedorTablasPiezProveeRepEnGestionesLayout.createSequentialGroup()
+                    .addComponent(jScrollPanePiezasGestiones, javax.swing.GroupLayout.DEFAULT_SIZE, 161, Short.MAX_VALUE)
+                    .addContainerGap()))
+        );
+
+        jScrollPaneGestionesGestiones.setBorder(javax.swing.BorderFactory.createTitledBorder("Gestiones"));
+
+        jTableGestionesGestiones.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPaneGestionesGestiones.setViewportView(jTableGestionesGestiones);
+
+        conetendorAdminGestiones.setBorder(javax.swing.BorderFactory.createTitledBorder("Admin. Gestiones"));
+
+        jLabelCodPiezGestion.setText("Cod. Pieza:");
+
+        jLabelCodProvGestion.setText("Cod. Prov:");
+
+        jLabelCodRepGestion.setText("Cod. Repar:");
+
+        buttonNuevaGestion.setText("Nueva");
+        buttonNuevaGestion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonNuevaGestionActionPerformed(evt);
+            }
+        });
+
+        buttonEliminarGestion.setText("Eliminar");
+        buttonEliminarGestion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonEliminarGestionActionPerformed(evt);
+            }
+        });
+
+        buttonActualizarGestion.setText("Actualizar");
+        buttonActualizarGestion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonActualizarGestionActionPerformed(evt);
+            }
+        });
+
+        jLabelCodCantGestion.setText("Código Gestion:");
+
+        javax.swing.GroupLayout conetendorAdminGestionesLayout = new javax.swing.GroupLayout(conetendorAdminGestiones);
+        conetendorAdminGestiones.setLayout(conetendorAdminGestionesLayout);
+        conetendorAdminGestionesLayout.setHorizontalGroup(
+            conetendorAdminGestionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(conetendorAdminGestionesLayout.createSequentialGroup()
+                .addGroup(conetendorAdminGestionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelCodProvGestion, javax.swing.GroupLayout.DEFAULT_SIZE, 92, Short.MAX_VALUE)
+                    .addComponent(jLabelCodRepGestion, javax.swing.GroupLayout.DEFAULT_SIZE, 92, Short.MAX_VALUE)
+                    .addComponent(jLabelCodPiezGestion, javax.swing.GroupLayout.DEFAULT_SIZE, 92, Short.MAX_VALUE)
+                    .addComponent(jLabelCodCantGestion, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(conetendorAdminGestionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(textFieldCodRepGestion, javax.swing.GroupLayout.DEFAULT_SIZE, 127, Short.MAX_VALUE)
+                    .addComponent(textFieldCodProvGestion, javax.swing.GroupLayout.DEFAULT_SIZE, 127, Short.MAX_VALUE)
+                    .addComponent(jTextFieldCodCantGestion, javax.swing.GroupLayout.DEFAULT_SIZE, 127, Short.MAX_VALUE)
+                    .addComponent(textFieldCodigoPiezaGestion, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 127, Short.MAX_VALUE)))
+            .addGroup(conetendorAdminGestionesLayout.createSequentialGroup()
+                .addComponent(buttonNuevaGestion)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(buttonEliminarGestion)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(buttonActualizarGestion))
+        );
+        conetendorAdminGestionesLayout.setVerticalGroup(
+            conetendorAdminGestionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, conetendorAdminGestionesLayout.createSequentialGroup()
+                .addGap(13, 13, 13)
+                .addGroup(conetendorAdminGestionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextFieldCodCantGestion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelCodCantGestion, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(conetendorAdminGestionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelCodPiezGestion)
+                    .addComponent(textFieldCodigoPiezaGestion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(conetendorAdminGestionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelCodProvGestion)
+                    .addComponent(textFieldCodProvGestion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(conetendorAdminGestionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelCodRepGestion)
+                    .addComponent(textFieldCodRepGestion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(38, 38, 38)
+                .addGroup(conetendorAdminGestionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(buttonNuevaGestion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(buttonEliminarGestion)
+                    .addComponent(buttonActualizarGestion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+        );
+
+        contenedorAdmAvanzGestiones.setBorder(javax.swing.BorderFactory.createTitledBorder("Admin. Avanzada"));
+
+        javax.swing.GroupLayout contenedorAdmAvanzGestionesLayout = new javax.swing.GroupLayout(contenedorAdmAvanzGestiones);
+        contenedorAdmAvanzGestiones.setLayout(contenedorAdmAvanzGestionesLayout);
+        contenedorAdmAvanzGestionesLayout.setHorizontalGroup(
+            contenedorAdmAvanzGestionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 278, Short.MAX_VALUE)
+        );
+        contenedorAdmAvanzGestionesLayout.setVerticalGroup(
+            contenedorAdmAvanzGestionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 172, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout contenedorGestionesLayout = new javax.swing.GroupLayout(contenedorGestiones);
+        contenedorGestiones.setLayout(contenedorGestionesLayout);
+        contenedorGestionesLayout.setHorizontalGroup(
+            contenedorGestionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(contenedorGestionesLayout.createSequentialGroup()
+                .addGroup(contenedorGestionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(contenedorTablasPiezProveeRepEnGestiones, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, contenedorGestionesLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPaneGestionesGestiones, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(conetendorAdminGestiones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(contenedorAdmAvanzGestiones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        contenedorGestionesLayout.setVerticalGroup(
+            contenedorGestionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(contenedorGestionesLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(contenedorTablasPiezProveeRepEnGestiones, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(contenedorGestionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(contenedorAdmAvanzGestiones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(conetendorAdminGestiones, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPaneGestionesGestiones, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 199, Short.MAX_VALUE)))
+        );
+
+        jTabbedPane1.addTab("Gestiones", contenedorGestiones);
+
         javax.swing.GroupLayout contenedorPrincipalLayout = new javax.swing.GroupLayout(contenedorPrincipal);
         contenedorPrincipal.setLayout(contenedorPrincipalLayout);
         contenedorPrincipalLayout.setHorizontalGroup(
             contenedorPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(contenedorPrincipalLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 741, Short.MAX_VALUE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(19, 19, 19)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 785, Short.MAX_VALUE))
         );
         contenedorPrincipalLayout.setVerticalGroup(
             contenedorPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -745,7 +979,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         );
 
         java.awt.Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
-        setBounds((screenSize.width-787)/2, (screenSize.height-472)/2, 787, 472);
+        setBounds((screenSize.width-830)/2, (screenSize.height-472)/2, 830, 472);
     }// </editor-fold>//GEN-END:initComponents
 
     private void eliminarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarButtonActionPerformed
@@ -1165,6 +1399,18 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     }//GEN-LAST:event_buttonBusqAvanzPiezasActionPerformed
 
+    private void buttonNuevaGestionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonNuevaGestionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonNuevaGestionActionPerformed
+
+    private void buttonEliminarGestionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEliminarGestionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonEliminarGestionActionPerformed
+
+    private void buttonActualizarGestionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonActualizarGestionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonActualizarGestionActionPerformed
+
     /**
     * @param args the command line arguments
     */
@@ -1179,18 +1425,24 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton actualizarButton;
+    private javax.swing.JButton buttonActualizarGestion;
     private javax.swing.JButton buttonActualizarProveedor;
     private javax.swing.JButton buttonActualizarReparacion;
     private javax.swing.JButton buttonBusqAvanzPiezas;
     private javax.swing.JButton buttonBusqAvanzProveedores;
+    private javax.swing.JButton buttonEliminarGestion;
     private javax.swing.JButton buttonEliminarProveedor;
     private javax.swing.JButton buttonEliminarReparacion;
+    private javax.swing.JButton buttonNuevaGestion;
     private javax.swing.JButton buttonNuevaReparacion;
     private javax.swing.JButton buttonNuevoProveedor;
+    private javax.swing.JPanel conetendorAdminGestiones;
+    private javax.swing.JPanel contenedorAdmAvanzGestiones;
     private javax.swing.JPanel contenedorBusquedaAvGestiones;
     private javax.swing.JPanel contenedorBusquedaAvProveedores;
     private javax.swing.JPanel contenedorGestionProveedores;
     private javax.swing.JPanel contenedorGestionReparaciones;
+    private javax.swing.JPanel contenedorGestiones;
     private javax.swing.JPanel contenedorPiezas;
     private javax.swing.JPanel contenedorPiezasBusquedaAvan;
     private javax.swing.JPanel contenedorPiezasControl;
@@ -1199,6 +1451,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel contenedorReparaciones;
     private javax.swing.JPanel contenedorTablaProveedores;
     private javax.swing.JPanel contenedorTablaProveedores1;
+    private javax.swing.JPanel contenedorTablasPiezProveeRepEnGestiones;
     private javax.swing.JButton eliminarButton;
     private javax.swing.JButton jButtonBusqAvanzreparaciones;
     private javax.swing.JLabel jLabel1;
@@ -1212,6 +1465,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel jLabelCodCantGestion;
+    private javax.swing.JLabel jLabelCodPiezGestion;
+    private javax.swing.JLabel jLabelCodProvGestion;
+    private javax.swing.JLabel jLabelCodRepGestion;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JRadioButton jRadioButtonCiudadReparacion;
     private javax.swing.JRadioButton jRadioButtonCodigoProveedores;
@@ -1227,7 +1484,16 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPaneGestionesGestiones;
+    private javax.swing.JScrollPane jScrollPanePiezasGestiones;
+    private javax.swing.JScrollPane jScrollPaneProveedoresGestiones;
+    private javax.swing.JScrollPane jScrollPaneReparacionesGestiones;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTable jTableGestionesGestiones;
+    private javax.swing.JTable jTablePiezasGestiones;
+    private javax.swing.JTable jTableProveedoresGestiones;
+    private javax.swing.JTable jTableReparacionesGestiones;
+    private javax.swing.JTextField jTextFieldCodCantGestion;
     private javax.swing.JButton nuevaButton;
     private javax.swing.JTable tablaPiezas;
     private javax.swing.JTable tablaProveedores;
@@ -1237,7 +1503,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JTextField textFieldBusqAvanzReparaciones;
     private javax.swing.JTextField textFieldBusquAvanzPiezas;
     private javax.swing.JTextField textFieldCiudadReparacion;
+    private javax.swing.JTextField textFieldCodProvGestion;
+    private javax.swing.JTextField textFieldCodRepGestion;
     private javax.swing.JTextField textFieldCodigoPieza;
+    private javax.swing.JTextField textFieldCodigoPiezaGestion;
     private javax.swing.JTextField textFieldCodigoProveedor;
     private javax.swing.JTextField textFieldCodigoReparacion;
     private javax.swing.JTextField textFieldDescripcion;
