@@ -56,6 +56,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         this.tablaProveedores.setModel(this.modeloTablaProveedores);
         this.tablaReparaciones.setModel(this.modeloTablaReparaciones);
 
+        // inseto los modelos en el panel de gestiones
+        this.jTablePiezasGestiones.setModel(modeloTablaPiezas);
+        this.jTableProveedoresGestiones.setModel(modeloTablaProveedores);
+        this.jTableReparacionesGestiones.setModel(modeloTablaReparaciones);
+
 
     }
 
@@ -323,13 +328,13 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         contenedorPiezasLayout.setHorizontalGroup(
             contenedorPiezasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(contenedorPiezasLayout.createSequentialGroup()
-                .addGroup(contenedorPiezasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(contenedorPiezasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(contenedorPiezasLayout.createSequentialGroup()
                         .addComponent(contenedorPiezasControl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(contenedorPiezasBusquedaAvan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 698, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(80, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 698, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
         contenedorPiezasLayout.setVerticalGroup(
             contenedorPiezasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
