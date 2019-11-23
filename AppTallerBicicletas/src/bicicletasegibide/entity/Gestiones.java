@@ -1,6 +1,15 @@
 package bicicletasegibide.entity;
 // Generated 15-nov-2019 18:09:33 by Hibernate Tools 3.2.1.GA
 
+import bicicletasegibide.util.NewHibernateUtil;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+
+
 
 
 /**
@@ -67,6 +76,35 @@ public class Gestiones  implements java.io.Serializable {
     
     public void setCantidad(Float cantidad) {
         this.cantidad = cantidad;
+    }
+
+    public ArrayList<Gestiones> listarGestiones(){
+
+        SessionFactory sesion = NewHibernateUtil.getSessionFactory();
+        Session session = sesion.openSession();
+
+        ArrayList arrayListGestiones = new ArrayList();
+
+        // query
+        Query q = session.createQuery("from Gestiones");
+
+        List <Gestiones> lista = q.list();
+
+        // Obtengo un Iterador y recorro la lista
+        Iterator <Gestiones> iter = lista.iterator();
+
+        lista.size();
+
+        while(iter.hasNext()){
+
+            //extraer el objeto
+            Gestiones gestion = (Gestiones) iter.next();
+            arrayListGestiones.add(gestion);
+
+        }
+
+
+        return arrayListGestiones;
     }
 
 

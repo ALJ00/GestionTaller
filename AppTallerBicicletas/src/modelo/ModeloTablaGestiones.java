@@ -5,8 +5,11 @@
 
 package modelo;
 
+import bicicletasegibide.entity.Gestiones;
 import bicicletasegibide.entity.GestionesId;
 import bicicletasegibide.entity.Piezas;
+import bicicletasegibide.entity.Proveedores;
+import bicicletasegibide.entity.Reparaciones;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
@@ -17,14 +20,14 @@ import javax.swing.table.AbstractTableModel;
  */
 public class ModeloTablaGestiones extends AbstractTableModel {
 
-    private List<GestionesId> listaGestiones = new ArrayList();
-    private String[] columnas = {"Código pieza","Código Proveedor","Código Reparación"};
+    private List<Gestiones> listaGestiones = new ArrayList();
+    private String[] columnas = {"Código","Código pieza","Código Proveedor","Código Reparación"};
 
     // constructors
     public ModeloTablaGestiones() {
     }
 
-    public ModeloTablaGestiones(List<GestionesId> listaGestiones) {
+    public ModeloTablaGestiones(List<Gestiones> listaGestiones) {
 
         this.listaGestiones = listaGestiones;
     }
@@ -40,15 +43,17 @@ public class ModeloTablaGestiones extends AbstractTableModel {
     }
 
     public Object getValueAt(int rowIndex, int columnIndex) {
-        GestionesId p = this.listaGestiones.get(rowIndex);
+        Gestiones p = this.listaGestiones.get(rowIndex);
 
       switch(columnIndex){
            case 0:
-               return p.getPiezasCodigopieza();
-           case 1:
-               return p.getProveedoresCodigoproveedor();
-           case 2:
-               return p.getReparacionesCodigoreparacion();
+              return p.getCantidad();
+          case 1:
+              return p.getPiezas().getCodigopieza();
+          case 2:
+              return p.getProveedores().getCodigoproveedor();
+          case 3:
+              return p.getReparaciones().getCodigoreparacion();
 
 
        }
@@ -56,7 +61,7 @@ public class ModeloTablaGestiones extends AbstractTableModel {
       return null;
     }
 
-    public void adicionarReparacion(GestionesId gestionNueva){
+    public void adicionarReparacion(Gestiones gestionNueva){
 
         listaGestiones.add(gestionNueva);
         fireTableDataChanged();
@@ -70,7 +75,7 @@ public class ModeloTablaGestiones extends AbstractTableModel {
 
     }
 
-    public GestionesId obtenerGestion(int rowIndex){
+    public Gestiones obtenerGestion(int rowIndex){
 
         return this.listaGestiones.get(rowIndex);
     }
@@ -91,21 +96,30 @@ public class ModeloTablaGestiones extends AbstractTableModel {
     @Override
     public void setValueAt(Object value, int rowIndex, int columnIndex ){
 
-        GestionesId g = listaGestiones.get(rowIndex);
+        Gestiones g = listaGestiones.get(rowIndex);
 
         Piezas p = new Piezas();
         p = (Piezas)value;
 
+        Proveedores po = new Proveedores();
+        po = (Proveedores)value;
+
+        Reparaciones  r = new Reparaciones();
+        r = (Reparaciones)value;
+
         switch(columnIndex){
 
             case 0:
-                g.setPiezasCodigopieza(value.toString());
+                g.setCantidad(null);
                 break;
             case 1:
-                 g.setProveedoresCodigoproveedor(value.toString());
+                g.setPiezas(p);
                 break;
             case 2:
-                 g.setReparacionesCodigoreparacion(value.toString());
+                g.setProveedores(po);
+                break;
+            case 3:
+                g.setReparaciones(r);
                 break;
 
 

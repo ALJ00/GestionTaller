@@ -11,12 +11,16 @@
 
 package vista;
 
+
+import bicicletasegibide.entity.Gestiones;
+import bicicletasegibide.entity.GestionesId;
 import bicicletasegibide.entity.Piezas;
 import bicicletasegibide.entity.Proveedores;
 import bicicletasegibide.entity.Reparaciones;
 import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import modelo.ModeloTablaGestiones;
 import modelo.ModeloTablaPiezas;
 import modelo.ModeloTablaProveedores;
 import modelo.ModeloTablaReparaciones;
@@ -35,31 +39,38 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         ArrayList arrayListPiezas = new ArrayList();
         ArrayList arrayListProveedores = new ArrayList();
         ArrayList arrayListReparaciones = new ArrayList();
+        ArrayList arrayListGestiones = new ArrayList();
 
         // objetos de control
         Piezas pieza = new Piezas();
         Proveedores proveedor = new Proveedores();
         Reparaciones reparacion = new Reparaciones();
+        Gestiones gestion = new Gestiones();
 
         // inicializo los arrayList
         arrayListPiezas = pieza.listarPiezas();
         arrayListProveedores = proveedor.listarProveedores();
         arrayListReparaciones = reparacion.listarReparaciones();
+        arrayListGestiones = gestion.listarGestiones();
 
         // inicializo los tablemodels
         this.modeloTablaPiezas = new ModeloTablaPiezas(arrayListPiezas);
         this.modeloTablaProveedores = new ModeloTablaProveedores(arrayListProveedores);
         this.modeloTablaReparaciones = new ModeloTablaReparaciones(arrayListReparaciones);
+        this.modeloTablaGestiones = new ModeloTablaGestiones(arrayListGestiones);
 
         // inserto los modelos a las tablas
         this.tablaPiezas.setModel(this.modeloTablaPiezas);
         this.tablaProveedores.setModel(this.modeloTablaProveedores);
         this.tablaReparaciones.setModel(this.modeloTablaReparaciones);
 
+
         // inseto los modelos en el panel de gestiones
         this.jTablePiezasGestiones.setModel(modeloTablaPiezas);
         this.jTableProveedoresGestiones.setModel(modeloTablaProveedores);
         this.jTableReparacionesGestiones.setModel(modeloTablaReparaciones);
+         this.jTableGestionesGestiones.setModel(modeloTablaGestiones);
+
 
 
     }
@@ -1526,6 +1537,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private ModeloTablaPiezas modeloTablaPiezas;
     private ModeloTablaProveedores modeloTablaProveedores;
     private ModeloTablaReparaciones modeloTablaReparaciones;
+    private ModeloTablaGestiones modeloTablaGestiones;
 
      // metod to clean textFields
     public void limpiarTextfieldsPiezas(){
