@@ -134,7 +134,9 @@ public class Proveedores  implements java.io.Serializable {
     }
 
     // actualizar proveedores
-    public void modificarProveedor(Proveedores proveedor){
+    public boolean modificarProveedor(Proveedores proveedor){
+
+        boolean r = false;
 
         SessionFactory sesion = NewHibernateUtil.getSessionFactory();
         Session session = sesion.openSession();
@@ -158,6 +160,8 @@ public class Proveedores  implements java.io.Serializable {
            try{
 
                tx.commit();
+
+               r = true;
                JOptionPane.showMessageDialog(null, "PROVEEDOR MODIFICADO CORRECTAMENTE");
 
            }catch(Exception e){
@@ -176,6 +180,7 @@ public class Proveedores  implements java.io.Serializable {
         }
 
         session.close();
+        return r;
 
     }
 
@@ -210,7 +215,9 @@ public class Proveedores  implements java.io.Serializable {
     }
 
     // borrar proveedores
-    public void borrarProveedor(Proveedores proveedor){
+    public boolean borrarProveedor(Proveedores proveedor){
+
+        boolean r = false;
 
         SessionFactory sesion = NewHibernateUtil.getSessionFactory();
         Session session = sesion.openSession();
@@ -222,6 +229,7 @@ public class Proveedores  implements java.io.Serializable {
         try{
             session.delete(de);
             tx.commit();
+            r = true;
             JOptionPane.showMessageDialog(null, "PROVEEDOR BORRADo CORRECTAMENTE");
         } catch (ObjectNotFoundException o){
 
@@ -238,10 +246,11 @@ public class Proveedores  implements java.io.Serializable {
             System.out.println ("ERROR NO CONTROLADO");
             JOptionPane.showMessageDialog(null, "ERROR NO CONTROLADO");
 
-            e.printStackTrace();
+            e.getMessage();
         }
 
         session.close();
+        return r;
     }
 
 

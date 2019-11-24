@@ -37,9 +37,6 @@ public class Piezas  implements java.io.Serializable {
         this.precio = precio;
         this.descripcion = descripcion;
     }
-
-    
-
 	
     public Piezas(String codigopieza, String nombre, float precio) {
         this.codigopieza = codigopieza;
@@ -95,6 +92,7 @@ public class Piezas  implements java.io.Serializable {
     // insertar nueva pieza
     public boolean insertarPieza(Piezas piezanueva){
 
+
         SessionFactory sesion = NewHibernateUtil.getSessionFactory();
         Session session = sesion.openSession();
         Transaction tx = session.beginTransaction();
@@ -139,7 +137,9 @@ public class Piezas  implements java.io.Serializable {
     }
 
     // actualizar pieza
-    public void modificarPieza(Piezas piezaModificada){
+    public boolean modificarPieza(Piezas piezaModificada){
+
+        boolean r = false;
 
         SessionFactory sesion = NewHibernateUtil.getSessionFactory();
         Session session = sesion.openSession();
@@ -163,6 +163,8 @@ public class Piezas  implements java.io.Serializable {
            try{
 
                tx.commit();
+
+               r = true;
                JOptionPane.showMessageDialog(null, "PIEZA MODIFICADA CORRECTAMENTE");
 
            }catch(Exception e){
@@ -181,6 +183,7 @@ public class Piezas  implements java.io.Serializable {
         }
 
         session.close();
+        return r;
 
     }
 
@@ -215,7 +218,9 @@ public class Piezas  implements java.io.Serializable {
     }
 
     // borrar pieza
-    public void borrarPieza(Piezas piezaAborrar){
+    public boolean borrarPieza(Piezas piezaAborrar){
+
+        boolean r = false;
 
         SessionFactory sesion = NewHibernateUtil.getSessionFactory();
         Session session = sesion.openSession();
@@ -227,6 +232,7 @@ public class Piezas  implements java.io.Serializable {
         try{
             session.delete(de);
             tx.commit();
+            r = true;
             JOptionPane.showMessageDialog(null, "PIEZA BORRADA CORRECTAMENTE");
         } catch (ObjectNotFoundException o){
 
@@ -236,7 +242,7 @@ public class Piezas  implements java.io.Serializable {
         } catch (ConstraintViolationException c){
 
             System.out.println ("NO SE PUEDE ELIMINAR");
-            JOptionPane.showMessageDialog(null, "NO SE PUEDE ELIMINAR");
+            JOptionPane.showMessageDialog(null, "NO SE PUEDE ELIMINAR "+c.getMessage());
 
         } catch (Exception e){
 
@@ -247,6 +253,7 @@ public class Piezas  implements java.io.Serializable {
         }
 
         session.close();
+        return r;
     }
 
 

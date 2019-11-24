@@ -1017,14 +1017,17 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             String p = this.tablaPiezas.getModel().getValueAt(rowSeleccionada, 2).toString();
             String d = this.tablaPiezas.getModel().getValueAt(rowSeleccionada, 3).toString();
 
-            // elimino del modelo la row
-            this.modeloTablaPiezas.eliminarPieza(rowSeleccionada);
-
+          
             // creo el objeto
             Piezas pieza = new Piezas(cod, n, Float.parseFloat(p), d);
 
             // borro de la bd la pieza
-            pieza.borrarPieza(pieza);
+            if(pieza.borrarPieza(pieza)){
+                 // elimino del modelo la row
+                this.modeloTablaPiezas.eliminarPieza(rowSeleccionada);
+            }else{
+                System.out.println ("ERROR");
+            }
 
         }
 
@@ -1046,18 +1049,25 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             String p = this.tablaPiezas.getValueAt(rowSeleccionada, 2).toString();
             String d = this.tablaPiezas.getValueAt(rowSeleccionada, 3).toString();
 
-            // actualizo la lista de piezas del table model y po lo tanto la fila en el Jtable
-            this.tablaPiezas.getModel().setValueAt(cod, rowSeleccionada, 0);
-            this.tablaPiezas.getModel().setValueAt(n, rowSeleccionada, 1);
-            this.tablaPiezas.getModel().setValueAt(p, rowSeleccionada, 2);
-            this.tablaPiezas.getModel().setValueAt(d, rowSeleccionada, 3);
-
+          
             float price = Float.valueOf(p);
 
             Piezas nuevaPieza = new Piezas(cod,n,price,d);
 
             //actualizo la pieza en la bd
-            nuevaPieza.modificarPieza(nuevaPieza);
+            if (nuevaPieza.modificarPieza(nuevaPieza)) {
+                // actualizo la lista de piezas del table model y po lo tanto la fila en el Jtable
+                this.tablaPiezas.getModel().setValueAt(cod, rowSeleccionada, 0);
+                this.tablaPiezas.getModel().setValueAt(n, rowSeleccionada, 1);
+                this.tablaPiezas.getModel().setValueAt(p, rowSeleccionada, 2);
+                this.tablaPiezas.getModel().setValueAt(d, rowSeleccionada, 3);
+
+            } else {
+
+                System.out.println("Error");
+
+
+            }
 
         }else{
 
@@ -1150,14 +1160,19 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             String ap = this.tablaProveedores.getModel().getValueAt(rowSeleccionada, 2).toString();
             String dir = this.tablaProveedores.getModel().getValueAt(rowSeleccionada, 3).toString();
 
-            // elimino del modelo la row
-            this.modeloTablaProveedores.eliminarProveedor(rowSeleccionada);
+            
 
             // creo el objeto
             Proveedores proveedor = new Proveedores(cod, n, ap, dir);
 
             // borro de la bd el proveedor
-            proveedor.borrarProveedor(proveedor);
+            if (proveedor.borrarProveedor(proveedor)) {
+                // elimino del modelo la row
+                this.modeloTablaProveedores.eliminarProveedor(rowSeleccionada);
+            } else {
+
+                System.out.println("No se ha guardado el proveedor en bd");
+            }
 
         }
 
@@ -1178,16 +1193,24 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             String apell = this.tablaProveedores.getValueAt(rowSeleccionada, 2).toString();
             String direc = this.tablaProveedores.getValueAt(rowSeleccionada, 3).toString();
 
-            // actualizo la lista de proveedores del table model y por lo tanto la fila en el Jtable
-            this.tablaProveedores.getModel().setValueAt(cod, rowSeleccionada, 0);
-            this.tablaProveedores.getModel().setValueAt(name, rowSeleccionada, 1);
-            this.tablaProveedores.getModel().setValueAt(apell, rowSeleccionada, 2);
-            this.tablaProveedores.getModel().setValueAt(direc, rowSeleccionada, 3);
+            
 
             Proveedores p = new Proveedores(cod,name,apell,direc);
 
             //actualizo el prov en la bd
-            p.modificarProveedor(p);
+            if (p.modificarProveedor(p)) {
+
+                // actualizo la lista de proveedores del table model y por lo tanto la fila en el Jtable
+                this.tablaProveedores.getModel().setValueAt(cod, rowSeleccionada, 0);
+                this.tablaProveedores.getModel().setValueAt(name, rowSeleccionada, 1);
+                this.tablaProveedores.getModel().setValueAt(apell, rowSeleccionada, 2);
+                this.tablaProveedores.getModel().setValueAt(direc, rowSeleccionada, 3);
+
+            } else {
+
+                System.out.println("ERROR");
+
+            }
 
         }else{
 
@@ -1489,14 +1512,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     private void buttonEliminarGestionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEliminarGestionActionPerformed
         // TODO add your handling code here:
-        
-        
+               
         //obtengo la filas seleccionada
         int rowGestion = this.jTableGestionesGestiones.getSelectedRow();
-        
-        
-
-
+              
         if(rowGestion>=0  ){
 
             Piezas pieza = new Piezas();
@@ -1512,7 +1531,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             proveedor.setCodigoproveedor(codPro);
             reparacion.setCodigoreparacion(codRep);
 
-
             GestionesId gestionId = new GestionesId(codP,codPro,codRep);
                     
             Gestiones gest = new Gestiones();
@@ -1523,21 +1541,20 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             gest.setProveedores(proveedor);
             gest.setReparaciones(reparacion);
             gest.setCantidad(1.0f);
-
-            // inserto en la tabla una nueva reparacion
-            this.modeloTablaGestiones.eliminarGestion(rowGestion);
-
+         
             // inserto en la bd nueva gestion
-            gest.borrarGestion(gest);
+            if (gest.borrarGestion(gest)) {
+                // inserto en la tabla una nueva reparacion
+                this.modeloTablaGestiones.eliminarGestion(rowGestion);
 
+            } else {
 
+                 System.out.println ("NO SE PUEDE ELIMINAR");
+            }
 
         }else{
-             JOptionPane.showMessageDialog(null, "SELECCIONE UNA PIEZA, UN PROVEEDOR Y UNA REPACIÓN ");
+             JOptionPane.showMessageDialog(null, "SELECCIONE UNA GESTIÓN");
         }
-
-
-
 
 
     }//GEN-LAST:event_buttonEliminarGestionActionPerformed

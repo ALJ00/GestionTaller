@@ -126,7 +126,9 @@ public class Reparaciones  implements java.io.Serializable {
     }
 
     // actualizar reparacion
-    public void modificarReparacion(Reparaciones reparacionModificada){
+    public boolean modificarReparacion(Reparaciones reparacionModificada){
+
+        boolean r = false;
 
         SessionFactory sesion = NewHibernateUtil.getSessionFactory();
         Session session = sesion.openSession();
@@ -147,6 +149,7 @@ public class Reparaciones  implements java.io.Serializable {
            try{
 
                tx.commit();
+               r = true;
                JOptionPane.showMessageDialog(null, "REPARACION MODIFICADA CORRECTAMENTE");
 
            }catch(Exception e){
@@ -165,6 +168,7 @@ public class Reparaciones  implements java.io.Serializable {
         }
 
         session.close();
+        return r;
 
     }
 
@@ -199,7 +203,9 @@ public class Reparaciones  implements java.io.Serializable {
     }
 
     // borrar reparacion
-    public void borrarReparacion(Reparaciones reparacionAborrar){
+    public boolean borrarReparacion(Reparaciones reparacionAborrar){
+
+        boolean r = false;
 
         SessionFactory sesion = NewHibernateUtil.getSessionFactory();
         Session session = sesion.openSession();
@@ -211,6 +217,7 @@ public class Reparaciones  implements java.io.Serializable {
         try{
             session.delete(de);
             tx.commit();
+            r = true;
             JOptionPane.showMessageDialog(null, "REPARACION BORRADA CORRECTAMENTE");
         } catch (ObjectNotFoundException o){
 
@@ -231,6 +238,7 @@ public class Reparaciones  implements java.io.Serializable {
         }
 
         session.close();
+        return r;
     }
 
     // reparacion por campo seleccionado

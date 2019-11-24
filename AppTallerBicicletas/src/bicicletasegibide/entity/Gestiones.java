@@ -128,8 +128,6 @@ public class Gestiones  implements java.io.Serializable {
         Transaction tx = session.beginTransaction();
 
        
-
-
         try{
             session.save(gest);
             try{
@@ -159,7 +157,9 @@ public class Gestiones  implements java.io.Serializable {
     
     }
 
-    public void borrarGestion(Gestiones gest){
+    public boolean borrarGestion(Gestiones gest){
+
+        boolean  r = false;
 
         SessionFactory sesion = NewHibernateUtil.getSessionFactory();
         Session session = sesion.openSession();
@@ -197,6 +197,7 @@ public class Gestiones  implements java.io.Serializable {
         try{
             session.delete(de);
             tx.commit();
+            r = true;
             JOptionPane.showMessageDialog(null, "GESTIÓN BORRADA CORRECTAMENTE");
         } catch (ObjectNotFoundException o){
 
@@ -216,7 +217,10 @@ public class Gestiones  implements java.io.Serializable {
             e.printStackTrace();
         }
 
+
         session.close();
+        return r;
+
     }
 }
 
