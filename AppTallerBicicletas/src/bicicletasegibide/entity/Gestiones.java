@@ -222,6 +222,78 @@ public class Gestiones  implements java.io.Serializable {
         return r;
 
     }
+
+    public boolean actualizarGestion(Gestiones gest){
+
+        boolean  r = false;
+
+        SessionFactory sesion = NewHibernateUtil.getSessionFactory();
+        Session session = sesion.openSession();
+        Transaction tx = session.beginTransaction();
+
+        ArrayList arrayListGestiones = new ArrayList();
+
+        // query
+        Query q = session.createQuery("from Gestiones where piezas_codigopieza = ? and proveedores_codigoproveedor = ? and reparaciones_codigoreparacion = ?");
+
+        q.setParameter(0, (String) gest.getPiezas().getCodigopieza());
+        q.setParameter(1, (String) gest.getProveedores().getCodigoproveedor());
+        q.setParameter(2, (String) gest.getReparaciones().getCodigoreparacion());
+
+        List <Gestiones> lista = q.list();
+
+        // Obtengo un Iterador y recorro la lista
+        Iterator <Gestiones> iter = lista.iterator();
+
+        while(iter.hasNext()){
+
+            //extraer el objeto
+            Gestiones gestion = (Gestiones) iter.next();
+            arrayListGestiones.add(gestion);
+
+        }
+
+        
+        try{
+
+            Gestiones de = new Gestiones();
+
+            de = (Gestiones) arrayListGestiones.get(0);
+
+            session.update(de);
+
+            try {
+                tx.commit();
+                r = true;
+                JOptionPane.showMessageDialog(null, "GESTIÓN ACTUALIZADA CORRECTAMENTE");
+
+            } catch (Exception e) {
+
+                JOptionPane.showMessageDialog(null, e.getMessage());
+            }
+
+           
+           
+        } catch (ObjectNotFoundException o){
+
+            System.out.println ("NO EXISTE LA GESTIÓN");
+            JOptionPane.showMessageDialog(null, "NO EXISTE LA GESTIÓN");
+
+     
+        } catch (Exception e){
+
+            System.out.println ("ERROR NO CONTROLADO");
+            JOptionPane.showMessageDialog(null, "ERROR NO CONTROLADO");
+
+           
+        }
+
+
+        session.close();
+        return r;
+
+    }
+
 }
 
 

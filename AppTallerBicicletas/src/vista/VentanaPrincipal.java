@@ -1267,16 +1267,19 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             String cod = this.tablaReparaciones.getModel().getValueAt(rowSeleccionada, 0).toString();
             String n = this.tablaReparaciones.getModel().getValueAt(rowSeleccionada, 1).toString();
             String ap = this.tablaReparaciones.getModel().getValueAt(rowSeleccionada, 2).toString();
-           
-
-            // elimino del modelo la row
-            this.modeloTablaReparaciones.eliminarReparacion(rowSeleccionada);
-
+                      
             // creo el objeto
             Reparaciones rep = new Reparaciones(cod, n, ap);
 
             // borro de la bd el proveedor
-            rep.borrarReparacion(rep);
+            if (rep.borrarReparacion(rep)) {
+                // elimino del modelo la row
+                this.modeloTablaReparaciones.eliminarReparacion(rowSeleccionada);
+
+            } else {
+                 System.out.println("ERROR");
+
+            }
         }
 
     }//GEN-LAST:event_buttonEliminarReparacionActionPerformed
@@ -1296,16 +1299,19 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             String apell = this.tablaReparaciones.getValueAt(rowSeleccionada, 2).toString();
            
 
-            // actualizo la lista de proveedores del table model y por lo tanto la fila en el Jtable
-            this.tablaReparaciones.getModel().setValueAt(cod, rowSeleccionada, 0);
-            this.tablaReparaciones.getModel().setValueAt(name, rowSeleccionada, 1);
-            this.tablaReparaciones.getModel().setValueAt(apell, rowSeleccionada, 2);
-            
-
             Reparaciones p = new Reparaciones(cod,name,apell);
 
             //actualizo la rep en la bd
-            p.modificarReparacion(p);
+            if (p.modificarReparacion(p)) {
+
+                // actualizo la lista de proveedores del table model y por lo tanto la fila en el Jtable
+                this.tablaReparaciones.getModel().setValueAt(cod, rowSeleccionada, 0);
+                this.tablaReparaciones.getModel().setValueAt(name, rowSeleccionada, 1);
+                this.tablaReparaciones.getModel().setValueAt(apell, rowSeleccionada, 2);
+            } else {
+
+                System.out.println("Error");
+            }
 
         }else{
 
@@ -1561,6 +1567,59 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     private void buttonActualizarGestionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonActualizarGestionActionPerformed
         // TODO add your handling code here:
+
+
+        //obtengo la filas seleccionada
+        int rowGestion = this.jTableGestionesGestiones.getSelectedRow();
+
+        if(rowGestion>=0  ){
+
+            Piezas pieza = new Piezas();
+            Proveedores proveedor = new Proveedores();
+            Reparaciones reparacion = new Reparaciones();
+
+            String cod = this.jTableGestionesGestiones.getValueAt(rowGestion, 0).toString();
+            String codP = this.jTableGestionesGestiones.getValueAt(rowGestion, 1).toString();
+            String codPro = this.jTableGestionesGestiones.getValueAt(rowGestion, 2).toString();
+            String codRep = this.jTableGestionesGestiones.getValueAt(rowGestion, 3).toString();
+
+            pieza.setCodigopieza(codP);
+            proveedor.setCodigoproveedor(codPro);
+            reparacion.setCodigoreparacion(codRep);
+
+            GestionesId gestionId = new GestionesId(codP,codPro,codRep);
+
+            Gestiones gest = new Gestiones();
+
+            // asigno los objetos pieza, proveedor y rep a la nueva gestion
+            gest.setId(gestionId);
+            gest.setPiezas(pieza);
+            gest.setProveedores(proveedor);
+            gest.setReparaciones(reparacion);
+            gest.setCantidad(1.0f);
+
+            // inserto en la bd nueva gestion
+            if (gest.actualizarGestion(gest)) {
+                // inserto en la tabla una nueva gestion
+               // actualizo la lista de gestiones del table model y por lo tanto la fila en el Jtable
+                this.jTableGestionesGestiones.getModel().setValueAt(gest.getCantidad(), rowGestion, 0);
+                this.jTableGestionesGestiones.getModel().setValueAt(gest.getPiezas().getCodigopieza(), rowGestion, 1);
+                this.jTableGestionesGestiones.getModel().setValueAt(gest.getProveedores().getCodigoproveedor(), rowGestion, 2);
+                this.jTableGestionesGestiones.getModel().setValueAt(gest.getReparaciones().getCodigoreparacion(), rowGestion, 3);
+
+            } else {
+
+                 System.out.println ("NO SE PUEDE ACTUALIZAR");
+            }
+
+        }else{
+             JOptionPane.showMessageDialog(null, "SELECCIONE UNA GESTIÓN");
+        }
+
+
+
+
+
     }//GEN-LAST:event_buttonActualizarGestionActionPerformed
 
     /**

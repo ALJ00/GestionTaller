@@ -98,31 +98,19 @@ public class ModeloTablaGestiones extends AbstractTableModel {
 
         Gestiones g = listaGestiones.get(rowIndex);
 
-        Gestiones gest = new Gestiones();
-        gest = (Gestiones)value;
-
-        Piezas p = new Piezas();
-        p = (Piezas)value;
-
-        Proveedores po = new Proveedores();
-        po = (Proveedores)value;
-
-        Reparaciones  r = new Reparaciones();
-        r = (Reparaciones)value;
-
         switch(columnIndex){
 
             case 0:
-                g.setCantidad(gest.getCantidad());
+                g.setCantidad((Float) value);
                 break;
             case 1:
-                g.setPiezas(p);
+                g.getPiezas().setCodigopieza(value.toString());
                 break;
             case 2:
-                g.setProveedores(po);
+                g.getProveedores().setCodigoproveedor(value.toString());
                 break;
             case 3:
-                g.setReparaciones(r);
+                g.getReparaciones().setCodigoreparacion(value.toString());
                 break;
 
 
