@@ -32,7 +32,6 @@ public class ModeloTablaGestiones extends AbstractTableModel {
         this.listaGestiones = listaGestiones;
     }
 
-
     // metods
     public int getRowCount() {
         return listaGestiones.size();
@@ -91,7 +90,6 @@ public class ModeloTablaGestiones extends AbstractTableModel {
 
         return true;
     }
-
 
     @Override
     public void setValueAt(Object value, int rowIndex, int columnIndex ){

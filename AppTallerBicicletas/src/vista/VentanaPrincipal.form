@@ -53,7 +53,7 @@
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="jTabbedPane1" alignment="0" pref="411" max="32767" attributes="0"/>
+              <Component id="jTabbedPane1" alignment="0" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
       </Layout>
@@ -97,11 +97,11 @@
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
-                          <Component id="jScrollPane1" pref="201" max="32767" attributes="0"/>
+                          <Component id="jScrollPane1" pref="204" max="32767" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="contenedorPiezasBusquedaAvan" max="32767" attributes="2"/>
-                              <Component id="contenedorPiezasControl" alignment="0" pref="169" max="32767" attributes="2"/>
+                              <Component id="contenedorPiezasControl" alignment="0" pref="172" max="32767" attributes="2"/>
                           </Group>
                       </Group>
                   </Group>
@@ -307,7 +307,7 @@
                                   <Component id="textFieldBusquAvanzPiezas" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="buttonBusqAvanzPiezas" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace pref="25" max="32767" attributes="0"/>
+                              <EmptySpace pref="28" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -539,7 +539,7 @@
                     </DimensionLayout>
                     <DimensionLayout dim="1">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jScrollPane2" alignment="0" pref="189" max="32767" attributes="0"/>
+                          <Component id="jScrollPane2" alignment="0" pref="192" max="32767" attributes="0"/>
                       </Group>
                     </DimensionLayout>
                   </Layout>
@@ -678,7 +678,7 @@
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <EmptySpace min="0" pref="383" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="389" max="32767" attributes="0"/>
                       <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                           <Component id="contenedorReparaciones" alignment="0" max="32767" attributes="0"/>
                       </Group>
@@ -862,7 +862,7 @@
                         </DimensionLayout>
                         <DimensionLayout dim="1">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jScrollPane3" alignment="0" pref="171" max="32767" attributes="0"/>
+                              <Component id="jScrollPane3" alignment="0" pref="174" max="32767" attributes="0"/>
                           </Group>
                         </DimensionLayout>
                       </Layout>
@@ -962,7 +962,7 @@
                                       <Component id="jButtonBusqAvanzreparaciones" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="textFieldBusqAvanzReparaciones" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace pref="16" max="32767" attributes="0"/>
+                                  <EmptySpace pref="19" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -1040,7 +1040,7 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="conetendorAdminGestiones" alignment="1" max="32767" attributes="0"/>
-                              <Component id="jScrollPaneGestionesGestiones" alignment="1" pref="199" max="32767" attributes="0"/>
+                              <Component id="jScrollPaneGestionesGestiones" alignment="1" pref="205" max="32767" attributes="0"/>
                               <Component id="contenedorAdmAvanzGestiones" alignment="1" max="32767" attributes="0"/>
                           </Group>
                       </Group>
@@ -1263,7 +1263,7 @@
                     <DimensionLayout dim="1">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jTextFieldCodCantGestion" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabelCodCantGestion" alignment="3" min="-2" pref="19" max="-2" attributes="0"/>
@@ -1364,9 +1364,9 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jTextField1" min="-2" pref="100" max="-2" attributes="0"/>
+                                      <Component id="jTextFieldResultadoAdminAvanzGestiones" min="-2" pref="100" max="-2" attributes="0"/>
                                   </Group>
-                                  <Component id="jRadioButton1" min="-2" pref="172" max="-2" attributes="0"/>
+                                  <Component id="jRadioButtonTopProveedor" min="-2" pref="172" max="-2" attributes="0"/>
                                   <Component id="jRadioButton2" alignment="0" min="-2" pref="115" max="-2" attributes="0"/>
                                   <Component id="jRadioButton3" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="jRadioButton4" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -1376,9 +1376,9 @@
                                   </Group>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jTextField2" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jButton1" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="jTextFieldAdminAvanzBusquedaGestiones" max="32767" attributes="1"/>
+                                  <Component id="jButtonBuscarAdminAvanzGestiones" alignment="0" max="32767" attributes="1"/>
                               </Group>
                               <EmptySpace pref="25" max="32767" attributes="0"/>
                           </Group>
@@ -1387,9 +1387,9 @@
                     <DimensionLayout dim="1">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="1" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" attributes="0">
-                                      <Component id="jRadioButton1" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jRadioButtonTopProveedor" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="jRadioButton2" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
@@ -1398,17 +1398,16 @@
                                       <Component id="jRadioButton4" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                                       <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="32767" attributes="0"/>
                                   </Group>
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jTextField2" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="108" pref="108" max="108" attributes="0"/>
+                                      <Component id="jTextFieldAdminAvanzBusquedaGestiones" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
+                              <EmptySpace type="unrelated" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="jButton1" min="0" pref="0" max="32767" attributes="1"/>
-                                  <Component id="jTextField1" alignment="0" max="32767" attributes="1"/>
+                                  <Component id="jButtonBuscarAdminAvanzGestiones" min="0" pref="0" max="32767" attributes="1"/>
+                                  <Component id="jTextFieldResultadoAdminAvanzGestiones" alignment="0" max="32767" attributes="1"/>
                               </Group>
                               <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                           </Group>
@@ -1416,7 +1415,7 @@
                     </DimensionLayout>
                   </Layout>
                   <SubComponents>
-                    <Component class="javax.swing.JRadioButton" name="jRadioButton1">
+                    <Component class="javax.swing.JRadioButton" name="jRadioButtonTopProveedor">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Top proveedor"/>
                       </Properties>
@@ -1444,20 +1443,17 @@
                         <Property name="text" type="java.lang.String" value="Resultado"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="jTextField1">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="jTextField1"/>
-                      </Properties>
+                    <Component class="javax.swing.JTextField" name="jTextFieldResultadoAdminAvanzGestiones">
                     </Component>
-                    <Component class="javax.swing.JButton" name="jButton1">
+                    <Component class="javax.swing.JButton" name="jButtonBuscarAdminAvanzGestiones">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Buscar"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonBuscarAdminAvanzGestionesActionPerformed"/>
+                      </Events>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="jTextField2">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="jTextField2"/>
-                      </Properties>
+                    <Component class="javax.swing.JTextField" name="jTextFieldAdminAvanzBusquedaGestiones">
                     </Component>
                   </SubComponents>
                 </Container>

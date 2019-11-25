@@ -294,6 +294,39 @@ public class Gestiones  implements java.io.Serializable {
 
     }
 
+    public int proveedorMasUtilizadoEnGestiones(String cod){
+
+       
+        SessionFactory sesion = NewHibernateUtil.getSessionFactory();
+        Session session = sesion.openSession();
+
+         ArrayList arrayList = new ArrayList();
+
+     
+        Query q = session.createQuery("FROM Gestiones  where  proveedores_codigoproveedor= ? ");
+        q.setParameter(0, cod);
+
+        
+        List<Gestiones> lista = q.list();
+
+        // Obtengo un Iterador y recorro la lista
+        Iterator<Gestiones> iter = lista.iterator();
+
+        lista.size();
+
+        while (iter.hasNext()) {
+
+            //extraer el objeto
+            Gestiones gest = (Gestiones) iter.next();
+            arrayList.add(gest);
+
+        }
+        
+        int numero = arrayList.size();
+        System.out.print("Count: " +arrayList.size());
+
+        return numero;
+    }
 }
 
 
