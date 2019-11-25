@@ -934,9 +934,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         contenedorAdmAvanzGestiones.setBorder(javax.swing.BorderFactory.createTitledBorder("Admin. Avanzada"));
 
-        jRadioButtonTopProveedor.setText("Prov. utilizado en consultas");
+        jRadioButtonTopProveedor.setText("Prov. utilizado en gestiones");
 
-        jRadioButtonTopPieza.setText("Pieza.utilizada en consultas");
+        jRadioButtonTopPieza.setText("Pieza.utilizada en gestiones");
         jRadioButtonTopPieza.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jRadioButtonTopPiezaActionPerformed(evt);
@@ -961,15 +961,15 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             .addGroup(contenedorAdmAvanzGestionesLayout.createSequentialGroup()
                 .addGroup(contenedorAdmAvanzGestionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(contenedorAdmAvanzGestionesLayout.createSequentialGroup()
-                        .addGroup(contenedorAdmAvanzGestionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(contenedorAdmAvanzGestionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(contenedorAdmAvanzGestionesLayout.createSequentialGroup()
                                 .addContainerGap()
                                 .addComponent(jTextFieldResultadoAdminAvanzGestiones, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jRadioButtonNumPieza)
                             .addGroup(contenedorAdmAvanzGestionesLayout.createSequentialGroup()
                                 .addContainerGap()
                                 .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jRadioButtonTopPieza))
+                            .addComponent(jRadioButtonTopPieza, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jRadioButtonNumPieza, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(17, 17, 17)
                         .addGroup(contenedorAdmAvanzGestionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jTextFieldAdminAvanzBusquedaGestiones)
@@ -984,7 +984,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(contenedorAdmAvanzGestionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(contenedorAdmAvanzGestionesLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jRadioButtonTopPieza)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jRadioButtonNumPieza)
