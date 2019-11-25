@@ -176,9 +176,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jLabelCodCantGestion = new javax.swing.JLabel();
         contenedorAdmAvanzGestiones = new javax.swing.JPanel();
         jRadioButtonTopProveedor = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jRadioButton3 = new javax.swing.JRadioButton();
-        jRadioButton4 = new javax.swing.JRadioButton();
+        jRadioButtonTopPieza = new javax.swing.JRadioButton();
+        jRadioButtonNumPieza = new javax.swing.JRadioButton();
         jLabel12 = new javax.swing.JLabel();
         jTextFieldResultadoAdminAvanzGestiones = new javax.swing.JTextField();
         jButtonBuscarAdminAvanzGestiones = new javax.swing.JButton();
@@ -484,7 +483,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         );
         contenedorTablaProveedoresLayout.setVerticalGroup(
             contenedorTablaProveedoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 192, Short.MAX_VALUE)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 194, Short.MAX_VALUE)
         );
 
         contenedorBusquedaAvProveedores.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Búsqueda Avanzada"));
@@ -935,18 +934,16 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         contenedorAdmAvanzGestiones.setBorder(javax.swing.BorderFactory.createTitledBorder("Admin. Avanzada"));
 
-        jRadioButtonTopProveedor.setText("Top proveedor");
+        jRadioButtonTopProveedor.setText("Prov. utilizado en consultas");
 
-        jRadioButton2.setText("Top pieza ");
-        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+        jRadioButtonTopPieza.setText("Pieza.utilizada en consultas");
+        jRadioButtonTopPieza.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton2ActionPerformed(evt);
+                jRadioButtonTopPiezaActionPerformed(evt);
             }
         });
 
-        jRadioButton3.setText("Nº piezas de un prov.");
-
-        jRadioButton4.setText("Nº proveed. utilizados");
+        jRadioButtonNumPieza.setText("Nº piezas de un prov.");
 
         jLabel12.setText("Resultado");
 
@@ -964,37 +961,37 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             .addGroup(contenedorAdmAvanzGestionesLayout.createSequentialGroup()
                 .addGroup(contenedorAdmAvanzGestionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(contenedorAdmAvanzGestionesLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jTextFieldResultadoAdminAvanzGestiones, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jRadioButtonTopProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jRadioButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jRadioButton3)
-                    .addComponent(jRadioButton4)
-                    .addGroup(contenedorAdmAvanzGestionesLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(contenedorAdmAvanzGestionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextFieldAdminAvanzBusquedaGestiones)
-                    .addComponent(jButtonBuscarAdminAvanzGestiones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(contenedorAdmAvanzGestionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(contenedorAdmAvanzGestionesLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jTextFieldResultadoAdminAvanzGestiones, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jRadioButtonNumPieza)
+                            .addGroup(contenedorAdmAvanzGestionesLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jRadioButtonTopPieza))
+                        .addGap(17, 17, 17)
+                        .addGroup(contenedorAdmAvanzGestionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jTextFieldAdminAvanzBusquedaGestiones)
+                            .addComponent(jButtonBuscarAdminAvanzGestiones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(jRadioButtonTopProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(25, Short.MAX_VALUE))
         );
         contenedorAdmAvanzGestionesLayout.setVerticalGroup(
             contenedorAdmAvanzGestionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(contenedorAdmAvanzGestionesLayout.createSequentialGroup()
+                .addComponent(jRadioButtonTopProveedor)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(contenedorAdmAvanzGestionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(contenedorAdmAvanzGestionesLayout.createSequentialGroup()
-                        .addComponent(jRadioButtonTopProveedor)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jRadioButton2)
+                        .addComponent(jRadioButtonTopPieza)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jRadioButton3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jRadioButton4)
-                        .addGap(27, 27, 27)
+                        .addComponent(jRadioButtonNumPieza)
+                        .addGap(50, 50, 50)
                         .addComponent(jLabel12))
                     .addGroup(contenedorAdmAvanzGestionesLayout.createSequentialGroup()
-                        .addGap(108, 108, 108)
+                        .addGap(85, 85, 85)
                         .addComponent(jTextFieldAdminAvanzBusquedaGestiones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(contenedorAdmAvanzGestionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -1043,7 +1040,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         );
         contenedorPrincipalLayout.setVerticalGroup(
             contenedorPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1)
+            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 417, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -1689,18 +1686,39 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     }//GEN-LAST:event_buttonActualizarGestionActionPerformed
 
-    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
+    private void jRadioButtonTopPiezaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonTopPiezaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton2ActionPerformed
+    }//GEN-LAST:event_jRadioButtonTopPiezaActionPerformed
 
     private void jButtonBuscarAdminAvanzGestionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarAdminAvanzGestionesActionPerformed
         // TODO add your handling code here:
 
         String d = jTextFieldAdminAvanzBusquedaGestiones.getText();
 
-        Gestiones g = new Gestiones();
-        long a = g.proveedorMasUtilizadoEnGestiones(d);
-         JOptionPane.showMessageDialog(null,Long.toString(a) );
+        if(d.isEmpty() && !this.jRadioButtonTopProveedor.isSelected() && !this.jRadioButtonTopPieza.isSelected()
+                && !this.jRadioButtonNumPieza.isSelected()){
+
+            JOptionPane.showMessageDialog(null,"Seleccione un item e introduzca un campo" );
+        }else{
+
+            if (this.jRadioButtonTopProveedor.isSelected()) {
+                Gestiones g = new Gestiones();
+                long a = g.proveedorMasUtilizadoEnGestiones(d);
+                //JOptionPane.showMessageDialog(null, Long.toString(a));
+
+                jTextFieldResultadoAdminAvanzGestiones.setText(String.valueOf(a));
+                
+            }else if(this.jRadioButtonTopPieza.isSelected()){
+                Gestiones g = new Gestiones();
+                long a = g.vecesUtilizadaUnaPiezaEnGestiones(d);
+                //JOptionPane.showMessageDialog(null, Long.toString(a));
+
+                jTextFieldResultadoAdminAvanzGestiones.setText(String.valueOf(a));
+
+            }
+        }
+
+        
 
 
 
@@ -1768,9 +1786,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelCodProvGestion;
     private javax.swing.JLabel jLabelCodRepGestion;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton3;
-    private javax.swing.JRadioButton jRadioButton4;
     private javax.swing.JRadioButton jRadioButtonCiudadReparacion;
     private javax.swing.JRadioButton jRadioButtonCodigoProveedores;
     private javax.swing.JRadioButton jRadioButtonCodigoReparacion;
@@ -1779,9 +1794,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JRadioButton jRadioButtonListarReparaciones;
     private javax.swing.JRadioButton jRadioButtonNombreProveedores;
     private javax.swing.JRadioButton jRadioButtonNombreReparacion;
+    private javax.swing.JRadioButton jRadioButtonNumPieza;
     private javax.swing.JRadioButton jRadioButtonPiezasCodigo;
     private javax.swing.JRadioButton jRadioButtonPiezasNombre;
     private javax.swing.JRadioButton jRadioButtonTodasLasPiezas;
+    private javax.swing.JRadioButton jRadioButtonTopPieza;
     private javax.swing.JRadioButton jRadioButtonTopProveedor;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
