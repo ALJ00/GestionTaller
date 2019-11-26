@@ -17,13 +17,20 @@ import bicicletasegibide.entity.GestionesId;
 import bicicletasegibide.entity.Piezas;
 import bicicletasegibide.entity.Proveedores;
 import bicicletasegibide.entity.Reparaciones;
+import java.awt.image.BufferedImage;
 import java.util.ArrayList;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import modelo.ModeloTablaGestiones;
 import modelo.ModeloTablaPiezas;
 import modelo.ModeloTablaProveedores;
 import modelo.ModeloTablaReparaciones;
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartPanel;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.data.category.DefaultCategoryDataset;
 
 /**
  *
@@ -182,6 +189,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jTextFieldResultadoAdminAvanzGestiones = new javax.swing.JTextField();
         jButtonBuscarAdminAvanzGestiones = new javax.swing.JButton();
         jTextFieldAdminAvanzBusquedaGestiones = new javax.swing.JTextField();
+        contenedorGraficosEvolutivos = new javax.swing.JPanel();
+        contenedorGraficosGrafico = new javax.swing.JPanel();
+        ibiTorta = new javax.swing.JLabel();
+        jButtonCargarGrafico = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("App Gestión Taller Bicicletas");
@@ -338,7 +349,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 .addGroup(contenedorPiezasBusquedaAvanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(textFieldBusquAvanzPiezas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(buttonBusqAvanzPiezas))
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap(44, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout contenedorPiezasLayout = new javax.swing.GroupLayout(contenedorPiezas);
@@ -357,11 +368,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         contenedorPiezasLayout.setVerticalGroup(
             contenedorPiezasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, contenedorPiezasLayout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 204, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(contenedorPiezasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(contenedorPiezasBusquedaAvan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(contenedorPiezasControl, javax.swing.GroupLayout.DEFAULT_SIZE, 172, Short.MAX_VALUE)))
+                    .addComponent(contenedorPiezasControl, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)))
         );
 
         jTabbedPane1.addTab("Piezas", contenedorPiezas);
@@ -483,7 +494,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         );
         contenedorTablaProveedoresLayout.setVerticalGroup(
             contenedorTablaProveedoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 194, Short.MAX_VALUE)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 222, Short.MAX_VALUE)
         );
 
         contenedorBusquedaAvProveedores.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Búsqueda Avanzada"));
@@ -663,7 +674,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         );
         contenedorTablaProveedores1Layout.setVerticalGroup(
             contenedorTablaProveedores1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)
         );
 
         contenedorBusquedaAvGestiones.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Búsqueda Avanzada"));
@@ -716,7 +727,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 .addGroup(contenedorBusquedaAvGestionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonBusqAvanzreparaciones)
                     .addComponent(textFieldBusqAvanzReparaciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout contenedorReparacionesLayout = new javax.swing.GroupLayout(contenedorReparaciones);
@@ -755,7 +766,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 389, Short.MAX_VALUE)
+            .addGap(0, 416, Short.MAX_VALUE)
             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(contenedorReparaciones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -909,7 +920,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         conetendorAdminGestionesLayout.setVerticalGroup(
             conetendorAdminGestionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, conetendorAdminGestionesLayout.createSequentialGroup()
-                .addGap(19, 19, 19)
+                .addGap(50, 50, 50)
                 .addGroup(conetendorAdminGestionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextFieldCodCantGestion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelCodCantGestion, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -943,7 +954,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        jRadioButtonNumPieza.setText("Nº piezas de un prov.");
+        jRadioButtonNumPieza.setText("Repar. en gestiones");
 
         jLabel12.setText("Resultado");
 
@@ -992,7 +1003,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                     .addGroup(contenedorAdmAvanzGestionesLayout.createSequentialGroup()
                         .addGap(85, 85, 85)
                         .addComponent(jTextFieldAdminAvanzBusquedaGestiones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 38, Short.MAX_VALUE)
                 .addGroup(contenedorAdmAvanzGestionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jButtonBuscarAdminAvanzGestiones, 0, 0, Short.MAX_VALUE)
                     .addComponent(jTextFieldResultadoAdminAvanzGestiones))
@@ -1023,11 +1034,52 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(contenedorGestionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(conetendorAdminGestiones, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPaneGestionesGestiones, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 205, Short.MAX_VALUE)
+                    .addComponent(jScrollPaneGestionesGestiones, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 232, Short.MAX_VALUE)
                     .addComponent(contenedorAdmAvanzGestiones, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
         jTabbedPane1.addTab("Gestiones", contenedorGestiones);
+
+        javax.swing.GroupLayout contenedorGraficosGraficoLayout = new javax.swing.GroupLayout(contenedorGraficosGrafico);
+        contenedorGraficosGrafico.setLayout(contenedorGraficosGraficoLayout);
+        contenedorGraficosGraficoLayout.setHorizontalGroup(
+            contenedorGraficosGraficoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(ibiTorta, javax.swing.GroupLayout.DEFAULT_SIZE, 767, Short.MAX_VALUE)
+        );
+        contenedorGraficosGraficoLayout.setVerticalGroup(
+            contenedorGraficosGraficoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(ibiTorta, javax.swing.GroupLayout.DEFAULT_SIZE, 370, Short.MAX_VALUE)
+        );
+
+        jButtonCargarGrafico.setText("Cargar gráfico");
+        jButtonCargarGrafico.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCargarGraficoActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout contenedorGraficosEvolutivosLayout = new javax.swing.GroupLayout(contenedorGraficosEvolutivos);
+        contenedorGraficosEvolutivos.setLayout(contenedorGraficosEvolutivosLayout);
+        contenedorGraficosEvolutivosLayout.setHorizontalGroup(
+            contenedorGraficosEvolutivosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(contenedorGraficosEvolutivosLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(contenedorGraficosEvolutivosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, contenedorGraficosEvolutivosLayout.createSequentialGroup()
+                        .addComponent(jButtonCargarGrafico)
+                        .addGap(27, 27, 27))
+                    .addComponent(contenedorGraficosGrafico, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+        );
+        contenedorGraficosEvolutivosLayout.setVerticalGroup(
+            contenedorGraficosEvolutivosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(contenedorGraficosEvolutivosLayout.createSequentialGroup()
+                .addComponent(contenedorGraficosGrafico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(11, 11, 11)
+                .addComponent(jButtonCargarGrafico)
+                .addContainerGap(12, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Gráfico evolutivo", contenedorGraficosEvolutivos);
 
         javax.swing.GroupLayout contenedorPrincipalLayout = new javax.swing.GroupLayout(contenedorPrincipal);
         contenedorPrincipal.setLayout(contenedorPrincipalLayout);
@@ -1039,7 +1091,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         );
         contenedorPrincipalLayout.setVerticalGroup(
             contenedorPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 417, Short.MAX_VALUE)
+            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 444, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -1057,7 +1109,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         );
 
         java.awt.Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
-        setBounds((screenSize.width-820)/2, (screenSize.height-472)/2, 820, 472);
+        setBounds((screenSize.width-820)/2, (screenSize.height-505)/2, 820, 505);
     }// </editor-fold>//GEN-END:initComponents
 
     private void eliminarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarButtonActionPerformed
@@ -1694,35 +1746,86 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         String d = jTextFieldAdminAvanzBusquedaGestiones.getText();
 
-        if(d.isEmpty() && !this.jRadioButtonTopProveedor.isSelected() && !this.jRadioButtonTopPieza.isSelected()
-                && !this.jRadioButtonNumPieza.isSelected()){
+        if (!d.equals("") && !this.jRadioButtonTopProveedor.isSelected()) {
+            Gestiones g = new Gestiones();
+            long a = g.proveedorMasUtilizadoEnGestiones(d);
+            //JOptionPane.showMessageDialog(null, Long.toString(a));
 
-            JOptionPane.showMessageDialog(null,"Seleccione un item e introduzca un campo" );
-        }else{
+            jTextFieldResultadoAdminAvanzGestiones.setText(String.valueOf(a));
+            
 
-            if (this.jRadioButtonTopProveedor.isSelected()) {
-                Gestiones g = new Gestiones();
-                long a = g.proveedorMasUtilizadoEnGestiones(d);
-                //JOptionPane.showMessageDialog(null, Long.toString(a));
+        } else if (!d.equals("") && !this.jRadioButtonTopPieza.isSelected()) {
+            Gestiones g = new Gestiones();
+            long a = g.vecesUtilizadaUnaPiezaEnGestiones(d);
+            //JOptionPane.showMessageDialog(null, Long.toString(a));
 
-                jTextFieldResultadoAdminAvanzGestiones.setText(String.valueOf(a));
-                
-            }else if(this.jRadioButtonTopPieza.isSelected()){
-                Gestiones g = new Gestiones();
-                long a = g.vecesUtilizadaUnaPiezaEnGestiones(d);
-                //JOptionPane.showMessageDialog(null, Long.toString(a));
+            jTextFieldResultadoAdminAvanzGestiones.setText(String.valueOf(a));
+           
 
-                jTextFieldResultadoAdminAvanzGestiones.setText(String.valueOf(a));
+        } else if (!d.equals("") && !this.jRadioButtonNumPieza.isSelected()) {
+            Gestiones g = new Gestiones();
+            long a = g.vecesUtilizadaUnaPiezaEnGestiones(d);
+            //JOptionPane.showMessageDialog(null, Long.toString(a));
 
-            }
+            jTextFieldResultadoAdminAvanzGestiones.setText(String.valueOf(a));
+          
+
+        } else {
+
+            JOptionPane.showMessageDialog(null, "Seleccione un item e introduzca un campo");
         }
 
-        
 
 
+        jTextFieldAdminAvanzBusquedaGestiones.setText("");
 
 
     }//GEN-LAST:event_jButtonBuscarAdminAvanzGestionesActionPerformed
+
+    private void jButtonCargarGraficoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCargarGraficoActionPerformed
+        // TODO add your handling code here:
+
+        DefaultCategoryDataset Datos = new DefaultCategoryDataset();
+
+        // agrego los datos al dataset
+        Datos.addValue(1, "Negocio 1", "Lunes");
+        Datos.addValue(2, "Negocio 1", "Martes");
+        Datos.addValue(3, "Negocio 1", "Miércoles");
+        Datos.addValue(4, "Negocio 1", "Jueves");
+        Datos.addValue(5, "Negocio 1", "Viernes");
+        Datos.addValue(6, "Negocio 1", "Sábado");
+        Datos.addValue(7, "Negocio 1", "Domingo");
+
+        grafica = ChartFactory.createBarChart("Control de piezas y proveedores usados en gestiones",
+                "Código pieza", "Cantidad", Datos,
+                PlotOrientation.HORIZONTAL, true, true, false);
+
+        BufferedImage graficoTorta = grafica.createBufferedImage(this.contenedorGraficosGrafico.getWidth(),
+                this.contenedorGraficosGrafico.getHeight());
+        this.ibiTorta.setSize(this.contenedorGraficosGrafico.getSize());
+        this.ibiTorta.setIcon(new ImageIcon(graficoTorta));
+        this.contenedorGraficosGrafico.updateUI();
+
+
+
+
+        //ChartPanel Panel = new ChartPanel(grafica);
+        //JFrame Ventana = new JFrame("JFreeChart");
+        //Ventana.getContentPane().add(Panel);
+        //Ventana.pack();
+        //Ventana.setVisible(true);
+        //Ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        //this.contenedorGraficosGrafico.se
+
+
+
+
+
+
+
+
+    }//GEN-LAST:event_jButtonCargarGraficoActionPerformed
 
     /**
     * @param args the command line arguments
@@ -1756,6 +1859,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel contenedorGestionProveedores;
     private javax.swing.JPanel contenedorGestionReparaciones;
     private javax.swing.JPanel contenedorGestiones;
+    private javax.swing.JPanel contenedorGraficosEvolutivos;
+    private javax.swing.JPanel contenedorGraficosGrafico;
     private javax.swing.JPanel contenedorPiezas;
     private javax.swing.JPanel contenedorPiezasBusquedaAvan;
     private javax.swing.JPanel contenedorPiezasControl;
@@ -1766,8 +1871,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel contenedorTablaProveedores1;
     private javax.swing.JPanel contenedorTablasPiezProveeRepEnGestiones;
     private javax.swing.JButton eliminarButton;
+    private javax.swing.JLabel ibiTorta;
     private javax.swing.JButton jButtonBuscarAdminAvanzGestiones;
     private javax.swing.JButton jButtonBusqAvanzreparaciones;
+    private javax.swing.JButton jButtonCargarGrafico;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1842,6 +1949,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private ModeloTablaProveedores modeloTablaProveedores;
     private ModeloTablaReparaciones modeloTablaReparaciones;
     private ModeloTablaGestiones modeloTablaGestiones;
+
+
+    // jFreeChart
+    JFreeChart grafica;
 
      // metod to clean textFields
     public void limpiarTextfieldsPiezas(){
