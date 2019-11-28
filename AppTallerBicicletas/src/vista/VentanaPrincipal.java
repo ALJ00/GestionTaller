@@ -1842,7 +1842,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         grafica = ChartFactory.createBarChart("Piezas más compradas",
                 "Código producto", "Cantidad", Datos,
-                PlotOrientation.HORIZONTAL, true, true, false);
+                PlotOrientation.VERTICAL, true, true, false);
 
         BufferedImage graficoTorta = grafica.createBufferedImage(this.contenedorGraficosGrafico.getWidth(),
                 this.contenedorGraficosGrafico.getHeight());
