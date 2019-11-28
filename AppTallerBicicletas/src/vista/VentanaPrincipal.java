@@ -19,6 +19,8 @@ import bicicletasegibide.entity.Proveedores;
 import bicicletasegibide.entity.Reparaciones;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -1785,19 +1787,61 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private void jButtonCargarGraficoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCargarGraficoActionPerformed
         // TODO add your handling code here:
 
-        DefaultCategoryDataset Datos = new DefaultCategoryDataset();
+        // extraigo las gestiones
+        Gestiones g = new Gestiones();
+        ArrayList<Gestiones> listaGestiones = new ArrayList();
+        listaGestiones = g.listarGestiones();
 
-        // agrego los datos al dataset
-        Datos.addValue(1, "Negocio 1", "Lunes");
-        Datos.addValue(2, "Negocio 1", "Martes");
-        Datos.addValue(3, "Negocio 1", "Miércoles");
-        Datos.addValue(4, "Negocio 1", "Jueves");
-        Datos.addValue(5, "Negocio 1", "Viernes");
-        Datos.addValue(6, "Negocio 1", "Sábado");
-        Datos.addValue(7, "Negocio 1", "Domingo");
+        // extraigo las piezas por código de piezas
+        Piezas p = new Piezas();
+        ArrayList<Piezas> listaPiezas = new ArrayList();
+        listaPiezas = p.listarPiezas();
 
-        grafica = ChartFactory.createBarChart("Control de piezas y proveedores usados en gestiones",
-                "Código pieza", "Cantidad", Datos,
+        ArrayList<String> listaCodigoPiezasGestiones = new ArrayList();
+        ArrayList<String> listaCodigoTablaPiezas = new ArrayList();
+
+        HashMap<String, String> codigoRepeticiones = new HashMap<String, String>();
+
+        // extraigo los codigos de la lista de las gestiones
+        for (Piezas elemento : listaPiezas) {
+
+            listaCodigoTablaPiezas.add(elemento.getCodigopieza());
+
+            int contador = 0;
+            for (Gestiones e : listaGestiones) {
+
+
+                listaCodigoPiezasGestiones.add(e.getPiezas().getCodigopieza());
+
+
+                if (elemento.getCodigopieza().equals(e.getPiezas().getCodigopieza())) {
+
+                    contador = contador + 1;
+                }
+
+                
+
+            }
+            codigoRepeticiones.put(elemento.getCodigopieza(), String.valueOf(contador));
+
+            System.out.println(codigoRepeticiones);
+
+            System.out.println("Pieza con codigo : " + elemento.getCodigopieza()+" se repite "+contador+" veces");
+
+        }
+
+         DefaultCategoryDataset Datos = new DefaultCategoryDataset();
+
+        // Print keys and values
+        for (String i : codigoRepeticiones.keySet()) {
+            System.out.println("key: " + i + " value: " + codigoRepeticiones.get(i));
+             Datos.addValue(Integer.valueOf(codigoRepeticiones.get(i)), "Piezas", i);
+        }
+
+      
+
+        grafica = ChartFactory.createBarChart("Piezas más compradas",
+                "Código producto", "Cantidad", Datos,
                 PlotOrientation.HORIZONTAL, true, true, false);
 
         BufferedImage graficoTorta = grafica.createBufferedImage(this.contenedorGraficosGrafico.getWidth(),
@@ -1805,9 +1849,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         this.ibiTorta.setSize(this.contenedorGraficosGrafico.getSize());
         this.ibiTorta.setIcon(new ImageIcon(graficoTorta));
         this.contenedorGraficosGrafico.updateUI();
-
-
-
 
         //ChartPanel Panel = new ChartPanel(grafica);
         //JFrame Ventana = new JFrame("JFreeChart");
