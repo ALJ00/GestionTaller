@@ -1792,15 +1792,27 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         ArrayList<Gestiones> listaGestiones = new ArrayList();
         listaGestiones = g.listarGestiones();
 
-        // extraigo las piezas por código de piezas
+        // extraigo las piezas por codigo de piezas
         Piezas p = new Piezas();
         ArrayList<Piezas> listaPiezas = new ArrayList();
         listaPiezas = p.listarPiezas();
 
+        // extraigo los proveedores por su codigo
+        Proveedores prov = new Proveedores();
+        ArrayList<Proveedores> listaProveedores = new ArrayList();
+        listaProveedores = prov.listarProveedores();
+
+        // listas para las piezas
         ArrayList<String> listaCodigoPiezasGestiones = new ArrayList();
         ArrayList<String> listaCodigoTablaPiezas = new ArrayList();
 
+        // listas para los proveedores
+         ArrayList<String> listaCodigoProvGestiones = new ArrayList();
+        ArrayList<String> listaCodigoTablaProv = new ArrayList();
+
+
         HashMap<String, String> codigoRepeticiones = new HashMap<String, String>();
+         HashMap<String, String> codigoRepeticionesprov = new HashMap<String, String>();
 
         // extraigo los codigos de la lista de las gestiones
         for (Piezas elemento : listaPiezas) {
@@ -1824,23 +1836,59 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             }
             codigoRepeticiones.put(elemento.getCodigopieza(), String.valueOf(contador));
 
-            System.out.println(codigoRepeticiones);
+            //System.out.println(codigoRepeticiones);
 
             System.out.println("Pieza con codigo : " + elemento.getCodigopieza()+" se repite "+contador+" veces");
 
         }
 
+
+
+        // extraigo los codigos de la lista de las gestiones
+        for (Proveedores elemento : listaProveedores) {
+
+            listaCodigoTablaProv.add(elemento.getCodigoproveedor());
+
+            int contador = 0;
+            for (Gestiones e : listaGestiones) {
+
+
+                listaCodigoProvGestiones.add(e.getProveedores().getCodigoproveedor());
+
+
+                if (elemento.getCodigoproveedor().equals(e.getProveedores().getCodigoproveedor())) {
+
+                    contador = contador + 1;
+                }
+
+
+
+            }
+            codigoRepeticionesprov.put(elemento.getCodigoproveedor(), String.valueOf(contador));
+
+            //System.out.println(codigoRepeticiones);
+
+            System.out.println("Proveedor con codigo : " + elemento.getCodigoproveedor()+" se repite "+contador+" veces");
+
+        }
+
          DefaultCategoryDataset Datos = new DefaultCategoryDataset();
+         codigoRepeticiones.entrySet();
 
         // Print keys and values
         for (String i : codigoRepeticiones.keySet()) {
-            System.out.println("key: " + i + " value: " + codigoRepeticiones.get(i));
+            //System.out.println("key: " + i + " value: " + codigoRepeticiones.get(i));
              Datos.addValue(Integer.valueOf(codigoRepeticiones.get(i)), "Piezas", i);
+        }
+
+         for (String i : codigoRepeticionesprov.keySet()) {
+            //System.out.println("key: " + i + " value: " + codigoRepeticionesprov.get(i));
+             Datos.addValue(Integer.valueOf(codigoRepeticionesprov.get(i)), "Proveedores", i);
         }
 
       
 
-        grafica = ChartFactory.createBarChart("Piezas más compradas",
+        grafica = ChartFactory.createBarChart("Evolutivo Piezas & Proveedores",
                 "Código producto", "Cantidad", Datos,
                 PlotOrientation.VERTICAL, true, true, false);
 
@@ -1850,22 +1898,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         this.ibiTorta.setIcon(new ImageIcon(graficoTorta));
         this.contenedorGraficosGrafico.updateUI();
 
-        //ChartPanel Panel = new ChartPanel(grafica);
-        //JFrame Ventana = new JFrame("JFreeChart");
-        //Ventana.getContentPane().add(Panel);
-        //Ventana.pack();
-        //Ventana.setVisible(true);
-        //Ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-        //this.contenedorGraficosGrafico.se
-
-
-
-
-
-
-
-
+      
     }//GEN-LAST:event_jButtonCargarGraficoActionPerformed
 
     /**
