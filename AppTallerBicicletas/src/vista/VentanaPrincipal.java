@@ -21,6 +21,8 @@ import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -1873,7 +1875,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         }
 
          DefaultCategoryDataset Datos = new DefaultCategoryDataset();
-         codigoRepeticiones.entrySet();
+
 
         // Print keys and values
         for (String i : codigoRepeticiones.keySet()) {
@@ -1887,7 +1889,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         }
 
       
-
         grafica = ChartFactory.createBarChart("Evolutivo Piezas & Proveedores",
                 "Código producto", "Cantidad", Datos,
                 PlotOrientation.VERTICAL, true, true, false);
