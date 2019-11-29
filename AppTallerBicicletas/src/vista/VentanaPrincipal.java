@@ -1773,7 +1773,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         } else if (!d.equals("") && !this.jRadioButtonNumPieza.isSelected()) {
             Gestiones g = new Gestiones();
-            long a = g.vecesUtilizadaUnaPiezaEnGestiones(d);
+            long a = g.reparacionUtilizadaEnGestions(d);
             //JOptionPane.showMessageDialog(null, Long.toString(a));
 
             jTextFieldResultadoAdminAvanzGestiones.setText(String.valueOf(a));
