@@ -1040,7 +1040,7 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="conetendorAdminGestiones" alignment="1" max="32767" attributes="0"/>
-                              <Component id="jScrollPaneGestionesGestiones" alignment="1" pref="236" max="32767" attributes="0"/>
+                              <Component id="jScrollPaneGestionesGestiones" alignment="1" pref="232" max="32767" attributes="0"/>
                               <Component id="contenedorAdmAvanzGestiones" alignment="1" max="32767" attributes="0"/>
                           </Group>
                       </Group>
@@ -1405,7 +1405,7 @@
                                       <Component id="jTextFieldAdminAvanzBusquedaGestiones" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace type="unrelated" pref="42" max="32767" attributes="0"/>
+                              <EmptySpace type="unrelated" pref="38" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="jButtonBuscarAdminAvanzGestiones" min="0" pref="0" max="32767" attributes="1"/>
                                   <Component id="jTextFieldResultadoAdminAvanzGestiones" alignment="0" max="32767" attributes="1"/>
@@ -1418,12 +1418,15 @@
                   <SubComponents>
                     <Component class="javax.swing.JRadioButton" name="jRadioButtonTopProveedor">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Prov. utilizado en gestiones"/>
+                        <Property name="text" type="java.lang.String" value="Pieza. utilizado en gestiones"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButtonTopProveedorActionPerformed"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JRadioButton" name="jRadioButtonTopPieza">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Pieza.utilizada en gestiones"/>
+                        <Property name="text" type="java.lang.String" value="Prov.utilizada en gestiones"/>
                       </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButtonTopPiezaActionPerformed"/>

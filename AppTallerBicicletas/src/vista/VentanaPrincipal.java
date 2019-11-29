@@ -949,9 +949,14 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         contenedorAdmAvanzGestiones.setBorder(javax.swing.BorderFactory.createTitledBorder("Admin. Avanzada"));
 
-        jRadioButtonTopProveedor.setText("Prov. utilizado en gestiones");
+        jRadioButtonTopProveedor.setText("Pieza. utilizado en gestiones");
+        jRadioButtonTopProveedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonTopProveedorActionPerformed(evt);
+            }
+        });
 
-        jRadioButtonTopPieza.setText("Pieza.utilizada en gestiones");
+        jRadioButtonTopPieza.setText("Prov.utilizada en gestiones");
         jRadioButtonTopPieza.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jRadioButtonTopPiezaActionPerformed(evt);
@@ -1901,6 +1906,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
       
     }//GEN-LAST:event_jButtonCargarGraficoActionPerformed
+
+    private void jRadioButtonTopProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonTopProveedorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButtonTopProveedorActionPerformed
 
     /**
     * @param args the command line arguments
